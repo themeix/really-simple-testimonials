@@ -3,7 +3,7 @@ Contributors: themeix
 Tags: testimonials, testimonial slider,  customer reviews, client feedback, testimonial carousel
 Requires at least: 6.0
 Requires PHP: 8.3
-Tested up to: 7.0.2
+Tested up to: 7.0
 Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

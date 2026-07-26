@@ -8,9 +8,7 @@ wp_enqueue_style('rst_frontend_from_style', plugin_dir_url(__FILE__) . 'css/fron
 
 $selected_fields = get_option('rst_user_fields', array());
 
-if (defined('WP_DEBUG') && WP_DEBUG) {
-    error_log('RST Frontend Form - Selected Fields: ' . print_r($selected_fields, true));
-}
+
 
 $rst_user_title = get_option('rst_user_title', 'We love to hear from our customers');
 $rst_user_name_label = get_option('rst_user_name', 'Name');
@@ -23,10 +21,10 @@ $rst_user_categories_label = get_option('rst_user_categories', 'Categories');
 $rst_user_logo_img_label = get_option('rst_user_logo_img', "Image or Logo");
 $rst_user_calculate_label = get_option('rst_user_calculate', 'Calculate');
 $rst_user_submit_btn_text = get_option('rst_user_submit_btn_text', 'Submit Testimonial');
-$rst_save_success_text = rst_user_retrive_messages('rst_save_success_text', __('Thank you for your valuable comments. Stay with us.', 'rst-testimonial'));
-$rst_save_error_text = rst_user_retrive_messages('rst_save_error_text', __('Please fill-up all the info again.','rst-testimonial'));
-$rst_file_mishmatch_text = rst_user_retrive_messages('rst_file_mishmatch_text', __('Only jpg, png and jpeg is accepted. Please try again.', 'rst-testimonial'));
-$rst_calc_error_text = rst_user_retrive_messages('rst_calc_error_text', __('Calculation is incorrect. Please try again.', 'rst-testimonial'));
+$rst_save_success_text = rst_user_retrive_messages('rst_save_success_text', __('Thank you for your valuable comments. Stay with us.', 'really-simple-testimonials'));
+$rst_save_error_text = rst_user_retrive_messages('rst_save_error_text', __('Please fill-up all the info again.','really-simple-testimonials'));
+$rst_file_mishmatch_text = rst_user_retrive_messages('rst_file_mishmatch_text', __('Only jpg, png and jpeg is accepted. Please try again.', 'really-simple-testimonials'));
+$rst_calc_error_text = rst_user_retrive_messages('rst_calc_error_text', __('Calculation is incorrect. Please try again.', 'really-simple-testimonials'));
 
 $show_captcha = in_array('Calculate', $selected_fields);
 $show_logo = false;
@@ -37,8 +35,8 @@ foreach ($selected_fields as $field) {
     }
 }
 
-$captcha_num1 = $show_captcha ? rand(1, 10) : 0;
-$captcha_num2 = $show_captcha ? rand(1, 10) : 0;
+$captcha_num1 = $show_captcha ? wp_rand(1, 10) : 0;
+$captcha_num2 = $show_captcha ? wp_rand(1, 10) : 0;
 ?>
 
 <div class="smart-wrap rst_frontend_form">
@@ -132,7 +130,7 @@ $captcha_num2 = $show_captcha ? rand(1, 10) : 0;
                             <?php endforeach; ?>
                         </select>
                         <?php else: ?>
-                        <input type="text" name="rst_categories_none" class="gui-input" placeholder="<?php esc_attr_e('No categories found', 'rst-testimonial'); ?>" disabled>
+                        <input type="text" name="rst_categories_none" class="gui-input" placeholder="<?php esc_attr_e('No categories found', 'really-simple-testimonials'); ?>" disabled>
                         <?php endif; ?>
                         <i class="arrow double"></i>
                     </label>

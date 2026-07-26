@@ -309,7 +309,7 @@ if ($rst_testimonial_themes == '2') {
 
         <div class="rst_container_thm_2 rst_<?php echo esc_attr( $postid );?>">
 
-            <div class="rst-testimonial-box-7 relative rst_testi_box_thm_2">
+            <div class="really-simple-testimonials-box-7 relative really-simple-testimonials-box_thm_2">
                 <div class="rst-slider rst_slider_<?php echo esc_attr( $postid );?>">
         <?php
         while ($rst_query_theme_2->have_posts()) {

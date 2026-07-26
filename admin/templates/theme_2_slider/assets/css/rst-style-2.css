@@ -19,7 +19,7 @@
 }
 
 
-.rst_container_thm_2 .rst-testimonial-box-7 .slick-dots{
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slick-dots{
     margin-top: 40px!important;
 }
 
@@ -307,7 +307,7 @@
 }
 
 
-.rst_container_thm_2 .rst-testimonial-box-7 .slick-slide {
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slick-slide {
     margin-right:12px;
     margin-left:12px;
 }
@@ -315,7 +315,7 @@
 
 
 
-.rst_container_thm_2 .rst-testimonial-box-7 .slider-arrows .rst-slider-prev, .slider-arrows .rst-slider-next {
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slider-arrows .rst-slider-prev, .slider-arrows .rst-slider-next {
     display: flex;
     align-items: center;
     width: 50px;
@@ -332,13 +332,13 @@
  
     transition: .5s;
 }
-.rst_container_thm_2 .rst-testimonial-box-7 .slider-arrows .rst-slider-next {
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slider-arrows .rst-slider-next {
     left: auto;
     right: -70px;
 }
 
 
-.rst_container_thm_2 .rst-testimonial-box-7 .slick-dots {
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slick-dots {
     display: flex;
     justify-content: center;
     margin: 0;
@@ -351,16 +351,16 @@
     justify-content: center;
     width: 100%;
 }
-.rst_container_thm_2 .rst-testimonial-box-7 .slick-dots li {
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slick-dots li {
     margin: 0 0.25rem;
 }
 
-.rst_container_thm_2 .rst-testimonial-box-7 .slick-dots button:focus {
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slick-dots button:focus {
     outline: 0!important;
 }
 
 
-.rst_container_thm_2 .rst-testimonial-box-7 .slick-dots button {
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slick-dots button {
     display: block;
     width: 20px;
     height: 5px;
@@ -373,7 +373,7 @@
     text-indent: -9999px;
 }
 
-.rst_container_thm_2 .rst-testimonial-box-7 .slick-active button {
+.rst_container_thm_2 .really-simple-testimonials-box-7 .slick-active button {
     background-color: #e45a7e;
 }
 

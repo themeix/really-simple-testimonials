@@ -125,31 +125,29 @@ if(!function_exists('rst_testimonial_pro_post_query')) {
         );
         $cats = get_categories($args);
         if (!empty($testimonial_cat_name) && !empty($cats)) {
-            $rstprocat = array();
-            $num = count($testimonial_cat_name);
-            for ($j = 0; $j < $num; $j++) {
-                array_push($rstprocat, $testimonial_cat_name[$j]);
-            }
+            $rstprocat = array_map('intval', $testimonial_cat_name);
+            $rstprocat = array_filter($rstprocat);
 
             $args = array(
-                'post_type' => 'rst_shortcode',
-                'post_status' => 'publish',
+                'post_type'      => 'rst_testimonial',
+                'post_status'    => 'publish',
                 'posts_per_page' => $dpstotoal_items,
-                'orderby' => $rst_order_by_option,
-                'tax_query' => array(
+                'orderby'        => $rst_order_by_option,
+                // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- tax_query is the correct WordPress API for filtering by taxonomy terms
+                'tax_query'      => array(
                     array(
                         'taxonomy' => 'rst_testimonial_category',
-                        'field' => 'id',
-                        'terms' => $rstprocat,
-                    )
-                )
+                        'field'    => 'term_id',
+                        'terms'    => $rstprocat,
+                    ),
+                ),
             );
         } else {
             $args = array(
-                'post_type' => 'rst_shortcode',
-                'post_status' => 'publish',
+                'post_type'      => 'rst_testimonial',
+                'post_status'    => 'publish',
                 'posts_per_page' => $dpstotoal_items,
-                'orderby' => $rst_order_by_option,
+                'orderby'        => $rst_order_by_option,
             );
         }
 

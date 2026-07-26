@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 if (!function_exists('rts_testimonials_add_submenu_items')) {
     function rts_testimonials_add_submenu_items()
     {
-        add_submenu_page('edit.php?post_type=rst_testimonial', esc_attr__('Generate Shortcode', 'rst-testimonial'), esc_attr__('Generate Shortcode', 'rst-testimonial'), 'manage_options', 'post-new.php?post_type=rst_shortcode');
+        add_submenu_page('edit.php?post_type=rst_testimonial', esc_attr__('Generate Shortcode', 'really-simple-testimonials'), esc_attr__('Generate Shortcode', 'really-simple-testimonials'), 'manage_options', 'post-new.php?post_type=rst_shortcode');
     }
 }
 
@@ -23,25 +23,25 @@ if (!function_exists('rst_testimonials_shortcode_generator_type')) {
 
         // Set UI labels for Custom Post Type
         $labels = array(
-            'name' => esc_attr_x('Testimonials', 'Post Type General Name', 'rst-testimonial'),
-            'singular_name' => esc_attr_x('Testimonial', 'Post Type Singular Name', 'rst-testimonial'),
-            'menu_name' => esc_attr__('Testimonials', 'rst-testimonial'),
-            'parent_item_colon' => esc_attr__('Parent Shortcode', 'rst-testimonial'),
-            'all_items' => esc_attr__('All Shortcode', 'rst-testimonial'),
-            'view_item' => esc_attr__('View Shortcode', 'rst-testimonial'),
-            'add_new_item' => esc_attr__('Generate Shortcode', 'rst-testimonial'),
-            'add_new' => esc_attr__('Generate New Shortcode', 'rst-testimonial'),
-            'edit_item' => esc_attr__('Edit Testimonial', 'rst-testimonial'),
-            'update_item' => esc_attr__('Update Testimonial', 'rst-testimonial'),
-            'search_items' => esc_attr__('Search Testimonial', 'rst-testimonial'),
-            'not_found' => esc_attr__('Not Found', 'rst-testimonial'),
-            'not_found_in_trash' => esc_attr__('Not found in Trash', 'rst-testimonial'),
+            'name' => esc_attr_x('Testimonials', 'Post Type General Name', 'really-simple-testimonials'),
+            'singular_name' => esc_attr_x('Testimonial', 'Post Type Singular Name', 'really-simple-testimonials'),
+            'menu_name' => esc_attr__('Testimonials', 'really-simple-testimonials'),
+            'parent_item_colon' => esc_attr__('Parent Shortcode', 'really-simple-testimonials'),
+            'all_items' => esc_attr__('All Shortcode', 'really-simple-testimonials'),
+            'view_item' => esc_attr__('View Shortcode', 'really-simple-testimonials'),
+            'add_new_item' => esc_attr__('Generate Shortcode', 'really-simple-testimonials'),
+            'add_new' => esc_attr__('Generate New Shortcode', 'really-simple-testimonials'),
+            'edit_item' => esc_attr__('Edit Testimonial', 'really-simple-testimonials'),
+            'update_item' => esc_attr__('Update Testimonial', 'really-simple-testimonials'),
+            'search_items' => esc_attr__('Search Testimonial', 'really-simple-testimonials'),
+            'not_found' => esc_attr__('Not Found', 'really-simple-testimonials'),
+            'not_found_in_trash' => esc_attr__('Not found in Trash', 'really-simple-testimonials'),
         );
 
         // Set other options for Custom Post Type
         $args = array(
-            'label' => esc_attr__('Testimonial Shortcode', 'rst-testimonial'),
-            'description' => esc_attr__('Shortcode news and reviews', 'rst-testimonial'),
+            'label' => esc_attr__('Testimonial Shortcode', 'really-simple-testimonials'),
+            'description' => esc_attr__('Shortcode news and reviews', 'really-simple-testimonials'),
             'labels' => $labels,
             'supports' => array('title'),
             'hierarchical' => false,
@@ -71,9 +71,9 @@ if (!function_exists('rst_testimonials_shortcode_clmn')) {
 
         return array_merge($columns,
             array(
-                'rst_shortcode' => esc_attr__('Shortcode', 'rst-testimonial'),
-                'rst_doshortcode' => esc_attr__('Template Shortcode', 'rst-testimonial'),
-                "date" => esc_attr__('Date', 'rst-testimonial'),
+                'rst_shortcode' => esc_attr__('Shortcode', 'really-simple-testimonials'),
+                'rst_doshortcode' => esc_attr__('Template Shortcode', 'really-simple-testimonials'),
+                "date" => esc_attr__('Date', 'really-simple-testimonials'),
             )
         );
     }
@@ -109,7 +109,7 @@ if (!function_exists('rst_testimonial_shortcode_register_meta_boxes')) {
         $attend = array('rst_shortcode');
         add_meta_box(
             'custom_meta_box_id',
-            esc_attr__('Testimonial Settings', 'rst-testimonial'),
+            esc_attr__('Testimonial Settings', 'really-simple-testimonials'),
             'rst_testimonials_display_post_type_func',
             $attend,
             'normal'
@@ -209,11 +209,11 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
             <!-- <div class="wrap"> -->
             <ul class="tab-nav">
-                <li nav="1" class="nav1 active"><?php esc_attr_e('Shortcodes', 'rst-testimonial'); ?></li>
-                <li nav="2" class="nav2 "><?php esc_attr_e('Testimonial Query ', 'rst-testimonial'); ?></li>
-                <li nav="3" class="nav3 "><?php esc_attr_e('General Settings ', 'rst-testimonial'); ?></li>
-                <li nav="4" class="nav4 "><?php esc_attr_e('Slider Settings', 'rst-testimonial'); ?></li>
-                <li nav="6" class="nav6"><?php esc_attr_e('Support & Doc', 'rst-testimonial'); ?></li>
+                <li nav="1" class="nav1 active"><?php esc_attr_e('Shortcodes', 'really-simple-testimonials'); ?></li>
+                <li nav="2" class="nav2 "><?php esc_attr_e('Testimonial Query ', 'really-simple-testimonials'); ?></li>
+                <li nav="3" class="nav3 "><?php esc_attr_e('General Settings ', 'really-simple-testimonials'); ?></li>
+                <li nav="4" class="nav4 "><?php esc_attr_e('Slider Settings', 'really-simple-testimonials'); ?></li>
+                <li nav="6" class="nav6"><?php esc_attr_e('Support & Doc', 'really-simple-testimonials'); ?></li>
             </ul> <!-- tab-nav end -->
 
 
@@ -221,14 +221,14 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                 <!-- Tab 1 -->
                 <li   class="d-block box1 tab-box ">
                     <div class="option-box">
-                        <p class="option-title"><?php esc_attr_e('Shortcode', 'rst-testimonial'); ?></p>
-                        <p class="rst_option_alert"><?php esc_attr_e('Use a unique shortcode only one time in a same page / post', 'rst-testimonial'); ?></p>
-                        <p class="option-info"><?php esc_attr_e('Copy this shortcode and paste on post, page or text widgets where you want to display Testimonial Showcase.', 'rst-testimonial'); ?></p>
+                        <p class="option-title"><?php esc_attr_e('Shortcode', 'really-simple-testimonials'); ?></p>
+                        <p class="rst_option_alert"><?php esc_attr_e('Use a unique shortcode only one time in a same page / post', 'really-simple-testimonials'); ?></p>
+                        <p class="option-info"><?php esc_attr_e('Copy this shortcode and paste on post, page or text widgets where you want to display Testimonial Showcase.', 'really-simple-testimonials'); ?></p>
                         <textarea readonly cols="50" rows="1"
                                   onClick="this.select(); execCommand('copy'); ">[rstpro <?php echo 'id="' . esc_attr($post->ID) . '"'; ?>]</textarea>
                         <br/><br/>
-                        <p class="option-info"><?php esc_attr_e('PHP Code:', 'rst-testimonial'); ?></p>
-                        <p class="option-info"><?php esc_attr_e('Use PHP code to your themes file to display Testimonial Showcase.', 'rst-testimonial'); ?></p>
+                        <p class="option-info"><?php esc_attr_e('PHP Code:', 'really-simple-testimonials'); ?></p>
+                        <p class="option-info"><?php esc_attr_e('Use PHP code to your themes file to display Testimonial Showcase.', 'really-simple-testimonials'); ?></p>
                         <textarea readonly cols="50" rows="2"
                                   onClick="this.select(); execCommand('copy');"><?php echo '<?php echo do_shortcode("[rstpro id=';
                             echo "'" . esc_attr($post->ID) . "']";
@@ -239,12 +239,12 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                 <li   class="box2 tab-box ">
                     <div class="wrap">
                         <div class="option-box">
-                            <p class="option-title"><?php esc_attr_e('Testimonial Query', 'rst-testimonial'); ?></p>
+                            <p class="option-title"><?php esc_attr_e('Testimonial Query', 'really-simple-testimonials'); ?></p>
                             <table class="form-table">
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="testimonial_cat_name"><?php esc_attr_e('Categories', 'rst-testimonial'); ?></label>
+                                        <label for="testimonial_cat_name"><?php esc_attr_e('Categories', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <ul>
@@ -262,18 +262,18 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                             foreach ($allthecats as $category):
                                                 $cat_id = $category->cat_ID;
                                                 $checked = (in_array($cat_id, ( array )$testimonial_cat_name) ? ' checked="checked"' : "");
-                                                echo '<li id="cat-' . esc_attr($cat_id) . '"><input type="checkbox" name="testimonial_cat_name[]" id="' . esc_attr($cat_id) . '" value="' . esc_attr($cat_id) . '"' . $checked . '> <label for="' . esc_attr($cat_id) . '">' . esc_attr__($category->cat_name, 'rst-testimonial') . '</label></li>';
+                                                echo '<li id="cat-' . esc_attr($cat_id) . '"><input type="checkbox" name="testimonial_cat_name[]" id="' . esc_attr($cat_id) . '" value="' . esc_attr($cat_id) . '"' . esc_attr($checked) . '> <label for="' . esc_attr($cat_id) . '">' . esc_attr($category->cat_name) . '</label></li>';
                                             endforeach;
                                             ?>
                                         </ul>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Categories Names only show when you publish testimonial under any categories. You can select multiple categories if you want.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Categories Names only show when you publish testimonial under any categories. You can select multiple categories if you want.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Testimonial Categories -->
 
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_testimonial_themes"><?php esc_attr_e('Select Theme', 'rst-testimonial'); ?></label>
+                                        <label for="rst_testimonial_themes"><?php esc_attr_e('Select Theme', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_testimonial_themes" id="rst_testimonial_themes"
@@ -281,24 +281,24 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                             <option value="1" <?php if (isset ($rst_testimonial_themes)) {
                                                 selected($rst_testimonial_themes, '1');
-                                            } ?>><?php esc_attr_e('Theme 1 (Slider)', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Theme 1 (Slider)', 'really-simple-testimonials') ?></option>
 
                                             <option value="2" <?php if (isset ($rst_testimonial_themes)) {
                                                 selected($rst_testimonial_themes, '2');
-                                            } ?>><?php esc_attr_e('Theme 2 (Slider)', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Theme 2 (Slider)', 'really-simple-testimonials') ?></option>
 
 
                                             <option value="3" <?php if (isset ($rst_testimonial_themes)) {
                                                 selected($rst_testimonial_themes, '3');
-                                            } ?>><?php esc_attr_e('Theme 3 (Grid)', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Theme 3 (Grid)', 'really-simple-testimonials') ?></option>
 
                                             <option value="4" <?php if (isset ($rst_testimonial_themes)) {
                                                 selected($rst_testimonial_themes, '4');
-                                            } ?>><?php esc_attr_e('Theme 4 (Grid)', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Theme 4 (Grid)', 'really-simple-testimonials') ?></option>
 
                                             <option value="5" <?php if (isset ($rst_testimonial_themes)) {
                                                 selected($rst_testimonial_themes, '5');
-                                            } ?>><?php esc_attr_e('Theme 5 (Grid)', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Theme 5 (Grid)', 'really-simple-testimonials') ?></option>
 
                                         </select>
 
@@ -307,7 +307,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                         </div>
 
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select a theme to display testimonials.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select a theme to display testimonials.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Testimonial Themes -->
 
@@ -324,23 +324,23 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                                 if (theme == '1') {
                                                     $('#rst_imagePreview').show();
-                                                    $('#rst_imagePreview img').attr('src', '<?php echo plugin_dir_url(__FILE__) . 'templates/screenshots/theme_1.png'; ?>');
+                                                    $('#rst_imagePreview img').attr('src', '<?php echo esc_url(plugin_dir_url(__FILE__) . 'templates/screenshots/theme_1.png'); ?>');
                                                 }
                                                 if (theme == '2') {
                                                     $('#rst_imagePreview').show();
-                                                    $('#rst_imagePreview img').attr('src', '<?php echo plugin_dir_url(__FILE__) . 'templates/screenshots/theme_2.png'; ?>');
+                                                    $('#rst_imagePreview img').attr('src', '<?php echo esc_url(plugin_dir_url(__FILE__) . 'templates/screenshots/theme_2.png'); ?>');
                                                 }
                                                 if (theme == '3') {
                                                     $('#rst_imagePreview').show();
-                                                    $('#rst_imagePreview img').attr('src', '<?php echo plugin_dir_url(__FILE__) . 'templates/screenshots/theme_3.png'; ?>');
+                                                    $('#rst_imagePreview img').attr('src', '<?php echo esc_url(plugin_dir_url(__FILE__) . 'templates/screenshots/theme_3.png'); ?>');
                                                 }
                                                 if (theme == '4') {
                                                     $('#rst_imagePreview').show();
-                                                    $('#rst_imagePreview img').attr('src', '<?php echo plugin_dir_url(__FILE__) . 'templates/screenshots/theme_4.png'; ?>');
+                                                    $('#rst_imagePreview img').attr('src', '<?php echo esc_url(plugin_dir_url(__FILE__) . 'templates/screenshots/theme_4.png'); ?>');
                                                 }
                                                 if (theme == '5') {
                                                     $('#rst_imagePreview').show();
-                                                    $('#rst_imagePreview img').attr('src', '<?php echo plugin_dir_url(__FILE__) . 'templates/screenshots/theme_5.png'; ?>');
+                                                    $('#rst_imagePreview img').attr('src', '<?php echo esc_url(plugin_dir_url(__FILE__) . 'templates/screenshots/theme_5.png'); ?>');
                                                 }
 
 
@@ -354,7 +354,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="dpstotoal_items"><?php esc_attr_e('Display Total Items', 'rst-testimonial'); ?></label>
+                                        <label for="dpstotoal_items"><?php esc_attr_e('Display Total Items', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="number" name="dpstotoal_items" id="dpstotoal_items" maxlength="4"
@@ -363,57 +363,57 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         } else {
                                             echo esc_attr('12');
                                         } ?>">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose maximum number of items you want to display'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose maximum number of items you want to display', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Order By -->
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_order_by_option"><?php esc_attr_e('Order By', 'rst-testimonial'); ?></label>
+                                        <label for="rst_order_by_option"><?php esc_attr_e('Order By', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_order_by_option" id="rst_order_by_option"
                                                 class="timezone_string">
                                             <option value="title" <?php if (isset ($rst_order_by_option)) {
                                                 selected($rst_order_by_option, 'title');
-                                            } ?>><?php esc_attr_e('Title', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Title', 'really-simple-testimonials') ?></option>
                                             <option value="modified" <?php if (isset ($rst_order_by_option)) {
                                                 selected($rst_order_by_option, 'modified');
-                                            } ?>><?php esc_attr_e('Modified', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Modified', 'really-simple-testimonials') ?></option>
                                             <option value="rand" <?php if (isset ($rst_order_by_option)) {
                                                 selected($rst_order_by_option, 'rand');
-                                            } ?>><?php esc_attr_e('Rand', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Rand', 'really-simple-testimonials') ?></option>
                                             <option value="comment_count" <?php if (isset ($rst_order_by_option)) {
                                                 selected($rst_order_by_option, 'comment_count');
-                                            } ?>><?php esc_attr_e('Popularity', 'rst-testimonial'); ?></option>
+                                            } ?>><?php esc_attr_e('Popularity', 'really-simple-testimonials'); ?></option>
                                         </select>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Order testimonials By (Title, Modified, Random or Popularity).', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Order testimonials By (Title, Modified, Random or Popularity).', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Order By -->
 
                                 <tr>
                                     <th>
-                                        <label for="rst_image_sizes"><?php esc_attr_e('Image Sizes', 'rst-testimonial'); ?></label>
+                                        <label for="rst_image_sizes"><?php esc_attr_e('Image Sizes', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_image_sizes" id="rst_image_sizes" class="rst_image_sizes">
                                             <option value="thumbnail" <?php if (isset ($rst_image_sizes)) {
                                                 selected($rst_image_sizes, 'thumbnail');
-                                            } ?>><?php esc_attr_e('Thumbnail', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Thumbnail', 'really-simple-testimonials') ?></option>
                                             <option value="medium" <?php if (isset ($rst_image_sizes)) {
                                                 selected($rst_image_sizes, 'medium');
-                                            } ?>><?php esc_attr_e('Medium', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Medium', 'really-simple-testimonials') ?></option>
                                             <option value="medium_large" <?php if (isset ($rst_image_sizes)) {
                                                 selected($rst_image_sizes, 'medium_large');
-                                            } ?>><?php esc_attr_e('Medium large', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Medium large', 'really-simple-testimonials') ?></option>
                                             <option value="large" <?php if (isset ($rst_image_sizes)) {
                                                 selected($rst_image_sizes, 'large');
-                                            } ?>><?php esc_attr_e('Large', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Large', 'really-simple-testimonials') ?></option>
                                             <option value="full" <?php if (isset ($rst_image_sizes)) {
                                                 selected($rst_image_sizes, 'full');
-                                            } ?>><?php esc_attr_e('Full', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Full', 'really-simple-testimonials') ?></option>
                                         </select>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose an image size to display perfectly', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose an image size to display perfectly', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Image Size -->
 
@@ -425,12 +425,12 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                 <li   class="box3 tab-box ">
                     <div class="wrap">
                         <div class="option-box">
-                            <p class="option-title"><?php esc_attr_e('General Settings', 'rst-testimonial'); ?></p>
+                            <p class="option-title"><?php esc_attr_e('General Settings', 'really-simple-testimonials'); ?></p>
                             <table class="form-table">
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_testimonial_textalign"><?php esc_attr_e('Text Align', 'rst-testimonial'); ?></label>
+                                        <label for="rst_testimonial_textalign"><?php esc_attr_e('Text Align', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -438,21 +438,21 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="left" <?php if ($rst_testimonial_textalign == 'left') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="radio-three"><?php esc_attr_e('Left', 'rst-testimonial'); ?><span
-                                                        class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="radio-three"><?php esc_attr_e('Left', 'really-simple-testimonials'); ?><span
+                                                        class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                             <input type="radio" id="radio-four" name="rst_testimonial_textalign"
                                                    value="center" <?php if ($rst_testimonial_textalign == 'center') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="radio-four"><?php esc_attr_e('Center', 'rst-testimonial'); ?></label>
+                                            <label for="radio-four"><?php esc_attr_e('Center', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="radio-five" name="rst_testimonial_textalign"
                                                    value="right" <?php if ($rst_testimonial_textalign == 'right') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="radio-five"><?php esc_attr_e('Right', 'rst-testimonial'); ?><span
-                                                        class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="radio-five"><?php esc_attr_e('Right', 'really-simple-testimonials'); ?><span
+                                                        class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose an option for the alignment of testimonials content.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose an option for the alignment of testimonials content.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Text Align -->
 
@@ -461,14 +461,14 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_designation"
-                                               class="rst_area_info"><?php esc_attr_e('Name Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Name Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_name_color_option"><?php esc_attr_e('Name Font Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_name_color_option"><?php esc_attr_e('Name Font Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_name_color_option" name="rst_name_color_option"
@@ -477,13 +477,13 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#020202");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for testimonial givers name.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for testimonial givers name.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Name Color -->
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_name_fontsize_option"><?php esc_attr_e('Name Font Size', 'rst-testimonial') ?></label>
+                                        <label for="rst_name_fontsize_option"><?php esc_attr_e('Name Font Size', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="number" name="rst_name_fontsize_option"
@@ -494,49 +494,49 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr('16');
                                                } ?>"> <br/>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose a font size for testimonial name.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose a font size for testimonial name.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Name Font Size-->
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_name_font_case"><?php esc_attr_e('Name Text Transform', 'rst-testimonial') ?></label>
+                                        <label for="rst_name_font_case"><?php esc_attr_e('Name Text Transform', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_name_font_case" id="rst_name_font_case"
                                                 class="timezone_string">
                                             <option value="none" <?php if (isset ($rst_name_font_case)) {
                                                 selected($rst_name_font_case, 'none');
-                                            } ?>><?php esc_attr_e('Default', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Default', 'really-simple-testimonials') ?></option>
                                             <option value="capitalize" <?php if (isset ($rst_name_font_case)) {
                                                 selected($rst_name_font_case, 'capitalize');
-                                            } ?>><?php esc_attr_e('Capitalize', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Capitalize', 'really-simple-testimonials') ?></option>
                                             <option value="lowercase" <?php if (isset ($rst_name_font_case)) {
                                                 selected($rst_name_font_case, 'lowercase');
-                                            } ?>><?php esc_attr_e('Lowercase', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Lowercase', 'really-simple-testimonials') ?></option>
                                             <option value="uppercase" <?php if (isset ($rst_name_font_case)) {
                                                 selected($rst_name_font_case, 'uppercase');
-                                            } ?>><?php esc_attr_e('Uppercase', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Uppercase', 'really-simple-testimonials') ?></option>
                                         </select><br>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select Name Text Transform', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select Name Text Transform', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End name text Transform -->
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_name_font_style"><?php esc_attr_e('Name Text Style', 'rst-testimonial') ?></label>
+                                        <label for="rst_name_font_style"><?php esc_attr_e('Name Text Style', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_name_font_style" id="rst_name_font_style"
                                                 class="timezone_string">
                                             <option value="normal" <?php if (isset ($rst_name_font_style)) {
                                                 selected($rst_name_font_style, 'normal');
-                                            } ?>><?php esc_attr_e('Default', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Default', 'really-simple-testimonials') ?></option>
                                             <option value="italic" <?php if (isset ($rst_name_font_style)) {
                                                 selected($rst_name_font_style, 'italic');
-                                            } ?>><?php esc_attr_e('Italic', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Italic', 'really-simple-testimonials') ?></option>
                                         </select><br>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select Name Text style', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select Name Text style', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr> <!-- End name text style -->
 
@@ -549,7 +549,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_designation"
-                                               class="rst_area_info"><?php esc_attr_e('Image Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Image Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
@@ -557,7 +557,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_img_show_hide"><?php esc_attr_e('Image Option', 'rst-testimonial'); ?></label>
+                                        <label for="rst_img_show_hide"><?php esc_attr_e('Image Option', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -565,15 +565,15 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="1" <?php if ($rst_img_show_hide == 1 || $rst_img_show_hide == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_img_show"><?php esc_attr_e('Show', 'rst-testimonial'); ?></label>
+                                            <label for="rst_img_show"><?php esc_attr_e('Show', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="rst_img_hide" name="rst_img_show_hide"
                                                    value="2" <?php if ($rst_img_show_hide == 2) {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_img_hide"><?php esc_attr_e('Hide', 'rst-testimonial'); ?><span
-                                                        class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="rst_img_hide"><?php esc_attr_e('Hide', 'really-simple-testimonials'); ?><span
+                                                        class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the image of testimonial giver.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the image of testimonial giver.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Image -->
 
@@ -581,7 +581,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="rst_imgborder_width_option"><?php esc_attr_e('Image Border Width', 'rst-testimonial') ?></label>
+                                        <label for="rst_imgborder_width_option"><?php esc_attr_e('Image Border Width', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td>
                                         <input type="number" name="rst_imgborder_width_option" min="0" max="10"
@@ -597,7 +597,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="rst_imgborder_color_option"><?php esc_attr_e('Image Border Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_imgborder_color_option"><?php esc_attr_e('Image Border Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_imgborder_color_option"
@@ -607,7 +607,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("transparent");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for image border.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for image border.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Name Color -->
 
@@ -615,7 +615,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="rst_testimonial_textalign"><?php esc_attr_e('Image Border Radius', 'rst-testimonial') ?></label>
+                                        <label for="rst_testimonial_textalign"><?php esc_attr_e('Image Border Radius', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_img_border_radius" id="rst_img_border_radius"
@@ -623,44 +623,44 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                             <option value="50%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '100%');
-                                            } ?>><?php esc_attr_e('100%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('100%', 'really-simple-testimonials') ?></option>
 
 
                                             <option value="0%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '0%');
-                                            } ?>><?php esc_attr_e('0%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('0%', 'really-simple-testimonials') ?></option>
 
 
                                             <option value="10%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '10%');
-                                            } ?>><?php esc_attr_e('10%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('10%', 'really-simple-testimonials') ?></option>
                                             <option value="15%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '15%');
-                                            } ?>><?php esc_attr_e('15%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('15%', 'really-simple-testimonials') ?></option>
                                             <option value="20%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '20%');
-                                            } ?>><?php esc_attr_e('20%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('20%', 'really-simple-testimonials') ?></option>
                                             <option value="25%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '25%');
-                                            } ?>><?php esc_attr_e('25%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('25%', 'really-simple-testimonials') ?></option>
                                             <option value="30%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '30%');
-                                            } ?>><?php esc_attr_e('30%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('30%', 'really-simple-testimonials') ?></option>
                                             <option value="40%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '40%');
-                                            } ?>><?php esc_attr_e('40%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('40%', 'really-simple-testimonials') ?></option>
 
                                             <option value="50%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '50%');
-                                            } ?>><?php esc_attr_e('50%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('50%', 'really-simple-testimonials') ?></option>
 
                                             <option value="80%" <?php if (isset ($rst_img_border_radius)) {
                                                 selected($rst_img_border_radius, '80%');
-                                            } ?>><?php esc_attr_e('80%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('80%', 'really-simple-testimonials') ?></option>
 
 
                                         </select>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select an option for border radius of the images.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select an option for border radius of the images.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Border Radius -->
 
@@ -672,14 +672,14 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_designation"
-                                               class="rst_area_info"><?php esc_attr_e('Designation Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Designation Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_designation_show_hide"><?php esc_attr_e('Designation Option', 'rst-testimonial') ?></label>
+                                        <label for="rst_designation_show_hide"><?php esc_attr_e('Designation Option', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -688,16 +688,16 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="1" <?php if ($rst_designation_show_hide == 1 || $rst_designation_show_hide == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_designation_show"><?php esc_attr_e('Show', 'rst-testimonial'); ?></label>
+                                            <label for="rst_designation_show"><?php esc_attr_e('Show', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="rst_designation_hide"
                                                    name="rst_designation_show_hide"
                                                    value="2" <?php if ($rst_designation_show_hide == 2) {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_designation_hide"><?php esc_attr_e('Hide', 'rst-testimonial'); ?>
-                                                <span class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="rst_designation_hide"><?php esc_attr_e('Hide', 'really-simple-testimonials'); ?>
+                                                <span class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the designation of testimonial giver.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the designation of testimonial giver.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -706,7 +706,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_desig_fontsize_option"><?php esc_attr_e('Designation Font Size', 'rst-testimonial') ?></label>
+                                        <label for="rst_desig_fontsize_option"><?php esc_attr_e('Designation Font Size', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="number" name="rst_desig_fontsize_option"
@@ -717,7 +717,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr('16');
                                                } ?>"> <br/>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose a font size for testimonial designation.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose a font size for testimonial designation.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -729,7 +729,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_designation_color_option"><?php esc_attr_e('Designation Font Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_designation_color_option"><?php esc_attr_e('Designation Font Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_designation_color_option"
@@ -739,7 +739,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#666666");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for testimonial givers designation.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for testimonial givers designation.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -751,25 +751,25 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_designation_case"><?php esc_attr_e('Designation Text Transform', 'rst-testimonial') ?></label>
+                                        <label for="rst_designation_case"><?php esc_attr_e('Designation Text Transform', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_designation_case" id="rst_designation_case"
                                                 class="timezone_string">
                                             <option value="none" <?php if (isset ($rst_designation_case)) {
                                                 selected($rst_designation_case, 'none');
-                                            } ?>><?php esc_attr_e('Default', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Default', 'really-simple-testimonials') ?></option>
                                             <option value="capitalize" <?php if (isset ($rst_designation_case)) {
                                                 selected($rst_designation_case, 'capitalize');
-                                            } ?>><?php esc_attr_e('Capitalize', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Capitalize', 'really-simple-testimonials') ?></option>
                                             <option value="lowercase" <?php if (isset ($rst_designation_case)) {
                                                 selected($rst_designation_case, 'lowercase');
-                                            } ?>><?php esc_attr_e('Lowercase', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Lowercase', 'really-simple-testimonials') ?></option>
                                             <option value="uppercase" <?php if (isset ($rst_designation_case)) {
                                                 selected($rst_designation_case, 'uppercase');
-                                            } ?>><?php esc_attr_e('Uppercase', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Uppercase', 'really-simple-testimonials') ?></option>
                                         </select><br>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select Designation Text Transform', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select Designation Text Transform', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -781,19 +781,19 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_designation_font_style"><?php esc_attr_e('Designation Text Style', 'rst-testimonial') ?></label>
+                                        <label for="rst_designation_font_style"><?php esc_attr_e('Designation Text Style', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_designation_font_style" id="rst_designation_font_style"
                                                 class="timezone_string">
                                             <option value="normal" <?php if (isset ($rst_designation_font_style)) {
                                                 selected($rst_designation_font_style, 'normal');
-                                            } ?>><?php esc_attr_e('Default', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Default', 'really-simple-testimonials') ?></option>
                                             <option value="italic" <?php if (isset ($rst_designation_font_style)) {
                                                 selected($rst_designation_font_style, 'italic');
-                                            } ?>><?php esc_attr_e('Italic', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Italic', 'really-simple-testimonials') ?></option>
                                         </select><br>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select Designation Text style', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select Designation Text style', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr> <!-- End name text style -->
 
@@ -805,14 +805,14 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_designation"
-                                               class="rst_area_info"><?php esc_attr_e('Company Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Company Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_company_show_hide"><?php esc_attr_e('Company URL Option', 'rst-testimonial') ?></label>
+                                        <label for="rst_company_show_hide"><?php esc_attr_e('Company URL Option', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -820,15 +820,15 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="1" <?php if ($rst_company_show_hide == 1 || $rst_company_show_hide == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_company_show"><?php esc_attr_e('Show', 'rst-testimonial'); ?></label>
+                                            <label for="rst_company_show"><?php esc_attr_e('Show', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="rst_company_hide" name="rst_company_show_hide"
                                                    value="2" <?php if ($rst_company_show_hide == 2) {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_company_hide"><?php esc_attr_e('Hide', 'rst-testimonial'); ?><span
-                                                        class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="rst_company_hide"><?php esc_attr_e('Hide', 'really-simple-testimonials'); ?><span
+                                                        class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the company name and URL of testimonial giver.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the company name and URL of testimonial giver.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -838,7 +838,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="rst_company_url_color"><?php esc_attr_e('Company URL Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_company_url_color"><?php esc_attr_e('Company URL Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_company_url_color" name="rst_company_url_color"
@@ -847,7 +847,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#666666");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for testimonial givers company name.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for testimonial givers company name.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
                                 <!-- End Url  Color -->
@@ -861,7 +861,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_designation"
-                                               class="rst_area_info"><?php esc_attr_e('Content Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Content Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
@@ -869,7 +869,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_content_show_hide"><?php esc_attr_e('Content Option', 'rst-testimonial') ?></label>
+                                        <label for="rst_content_show_hide"><?php esc_attr_e('Content Option', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -877,15 +877,15 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="1" <?php if ($rst_content_show_hide == 1 || $rst_content_show_hide == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_content_show"><?php esc_attr_e('Show', 'rst-testimonial'); ?></label>
+                                            <label for="rst_content_show"><?php esc_attr_e('Show', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="rst_content_hide" name="rst_content_show_hide"
                                                    value="2" <?php if ($rst_content_show_hide == 2) {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_content_hide"><?php esc_attr_e('Hide', 'rst-testimonial'); ?>
-                                                <span class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="rst_content_hide"><?php esc_attr_e('Hide', 'really-simple-testimonials'); ?>
+                                                <span class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the designation of testimonial giver.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the designation of testimonial giver.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -895,7 +895,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_content_color"><?php esc_attr_e('Content Font Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_content_color"><?php esc_attr_e('Content Font Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_content_color" name="rst_content_color"
@@ -904,7 +904,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#000000");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for testimonial message.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for testimonial message.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -915,7 +915,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_content_fontsize_option"><?php esc_attr_e('Content Font Size', 'rst-testimonial') ?></label>
+                                        <label for="rst_content_fontsize_option"><?php esc_attr_e('Content Font Size', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="number" name="rst_content_fontsize_option"
@@ -926,7 +926,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         } else {
                                             echo esc_attr('16');
                                         } ?>"> <br/>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose a font size for testimonial message.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose a font size for testimonial message.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -937,7 +937,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_content_bg_color"><?php esc_attr_e('Content Background Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_content_bg_color"><?php esc_attr_e('Content Background Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_content_bg_color" name="rst_content_bg_color"
@@ -946,7 +946,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("transparent");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for content background.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for content background.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -955,7 +955,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_content_padding"><?php esc_attr_e('Content Padding', 'rst-testimonial') ?></label>
+                                        <label for="rst_content_padding"><?php esc_attr_e('Content Padding', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_content_padding" id="rst_content_padding"
@@ -963,18 +963,18 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                             <option value="5" <?php if (isset ($rst_content_padding)) {
                                                 selected($rst_content_padding, '5');
-                                            } ?>><?php esc_attr_e('5px', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('5px', 'really-simple-testimonials') ?></option>
 
                                             <option value="10" <?php if (isset ($rst_content_padding)) {
                                                 selected($rst_content_padding, '10');
-                                            } ?>><?php esc_attr_e('10px', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('10px', 'really-simple-testimonials') ?></option>
 
                                             <option value="20" <?php if (isset ($rst_content_padding)) {
                                                 selected($rst_content_padding, '20');
-                                            } ?>><?php esc_attr_e('20px', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('20px', 'really-simple-testimonials') ?></option>
 
                                         </select>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select an option for content padding.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select an option for content padding.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
                                 <!-- End Content Background Color -->
@@ -984,7 +984,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_content_border_radius"><?php esc_attr_e('Content Border Radius', 'rst-testimonial') ?></label>
+                                        <label for="rst_content_border_radius"><?php esc_attr_e('Content Border Radius', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_content_border_radius" id="rst_content_border_radius"
@@ -993,22 +993,22 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                             <option value="0%" <?php if (isset ($rst_content_border_radius)) {
                                                 selected($rst_content_border_radius, '0%');
-                                            } ?>><?php esc_attr_e('Default', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Default', 'really-simple-testimonials') ?></option>
 
                                             <option value="1%" <?php if (isset ($rst_content_border_radius)) {
                                                 selected($rst_content_border_radius, '1%');
-                                            } ?>><?php esc_attr_e('1%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('1%', 'really-simple-testimonials') ?></option>
 
                                             <option value="2%" <?php if (isset ($rst_content_border_radius)) {
                                                 selected($rst_content_border_radius, '2%');
-                                            } ?>><?php esc_attr_e('2%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('2%', 'really-simple-testimonials') ?></option>
 
                                             <option value="3%" <?php if (isset ($rst_content_border_radius)) {
                                                 selected($rst_content_border_radius, '3%');
-                                            } ?>><?php esc_attr_e('3%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('3%', 'really-simple-testimonials') ?></option>
 
                                         </select>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select an option for border radius of the content.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select an option for border radius of the content.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -1021,14 +1021,14 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_designation"
-                                               class="rst_area_info"><?php esc_attr_e('Rating Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Rating Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_show_rating_option"><?php esc_attr_e('Rating Option', 'rst-testimonial') ?></label>
+                                        <label for="rst_show_rating_option"><?php esc_attr_e('Rating Option', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -1037,16 +1037,16 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="1" <?php if ($rst_show_rating_option == 1 || $rst_show_rating_option == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_show_rating_option"><?php esc_attr_e('Show', 'rst-testimonial'); ?></label>
+                                            <label for="rst_show_rating_option"><?php esc_attr_e('Show', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="rst_hide_rating_option"
                                                    name="rst_show_rating_option"
                                                    value="2" <?php if ($rst_show_rating_option == 2) {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_hide_rating_option"><?php esc_attr_e('Hide', 'rst-testimonial'); ?>
-                                                <span class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="rst_hide_rating_option"><?php esc_attr_e('Hide', 'really-simple-testimonials'); ?>
+                                                <span class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the rating of testimonial giver.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide the rating of testimonial giver.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -1056,7 +1056,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="rst_rating_color"><?php esc_attr_e('Rating Icon Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_rating_color"><?php esc_attr_e('Rating Icon Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_rating_color" name="rst_rating_color"
@@ -1065,7 +1065,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#ffa900");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for testimonial ratings.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for testimonial ratings.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Rating Color -->
 
@@ -1074,7 +1074,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_rating_fontsize_option"><?php esc_attr_e('Rating Font Size', 'rst-testimonial') ?></label>
+                                        <label for="rst_rating_fontsize_option"><?php esc_attr_e('Rating Font Size', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="number" name="rst_rating_fontsize_option"
@@ -1084,7 +1084,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         } else {
                                             echo esc_attr('16');
                                         } ?>"> <br/>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose a font size for testimonial ratings.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose a font size for testimonial ratings.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr><!-- End Content Font Size-->
 
@@ -1098,7 +1098,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_background"
-                                               class="rst_area_info"><?php esc_attr_e('Item Background Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Item Background Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
@@ -1106,7 +1106,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="rst_show_item_bg_option"><?php esc_attr_e('Item Background', 'rst-testimonial') ?></label>
+                                        <label for="rst_show_item_bg_option"><?php esc_attr_e('Item Background', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -1115,15 +1115,15 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="1" <?php if ($rst_show_item_bg_option == 1 || $rst_show_item_bg_option == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_show_item_bg_option"><?php esc_attr_e('Show', 'rst-testimonial'); ?></label>
+                                            <label for="rst_show_item_bg_option"><?php esc_attr_e('Show', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="rst_hide_item_bg_option"
                                                    name="rst_show_item_bg_option"
                                                    value="2" <?php if ($rst_show_item_bg_option == 2) {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="rst_hide_item_bg_option"><?php esc_attr_e('Hide', 'rst-testimonial'); ?></label>
+                                            <label for="rst_hide_item_bg_option"><?php esc_attr_e('Hide', 'really-simple-testimonials'); ?></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide background color for an item.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose one option whether you want to show or hide background color for an item.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -1133,7 +1133,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_item_bg_color"><?php esc_attr_e('Background Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_item_bg_color"><?php esc_attr_e('Background Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_item_bg_color" name="rst_item_bg_color"
@@ -1142,7 +1142,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("transparent");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for item background.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for item background.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -1153,7 +1153,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_item_padding"><?php esc_attr_e('Item Padding', 'rst-testimonial') ?></label>
+                                        <label for="rst_item_padding"><?php esc_attr_e('Item Padding', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_item_padding" id="rst_item_padding"
@@ -1161,18 +1161,18 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                             <option value="10" <?php if (isset ($rst_item_padding)) {
                                                 selected($rst_item_padding, '10');
-                                            } ?>><?php esc_attr_e('10px', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('10px', 'really-simple-testimonials') ?></option>
 
                                             <option value="20" <?php if (isset ($rst_item_padding)) {
                                                 selected($rst_item_padding, '20');
-                                            } ?>><?php esc_attr_e('20px', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('20px', 'really-simple-testimonials') ?></option>
 
                                             <option value="30" <?php if (isset ($rst_item_padding)) {
                                                 selected($rst_item_padding, '30');
-                                            } ?>><?php esc_attr_e('30px', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('30px', 'really-simple-testimonials') ?></option>
 
                                         </select>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select Padding for items.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select Padding for items.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -1183,7 +1183,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_item_border_radius"><?php esc_attr_e('Item Border Radius', 'rst-testimonial') ?></label>
+                                        <label for="rst_item_border_radius"><?php esc_attr_e('Item Border Radius', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="rst_item_border_radius" id="rst_item_border_radius"
@@ -1192,22 +1192,22 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                             <option value="0%" <?php if (isset ($rst_item_border_radius)) {
                                                 selected($rst_item_border_radius, '0%');
-                                            } ?>><?php esc_attr_e('Default', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('Default', 'really-simple-testimonials') ?></option>
 
                                             <option value="1%" <?php if (isset ($rst_item_border_radius)) {
                                                 selected($rst_item_border_radius, '1%');
-                                            } ?>><?php esc_attr_e('1%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('1%', 'really-simple-testimonials') ?></option>
 
                                             <option value="2%" <?php if (isset ($rst_item_border_radius)) {
                                                 selected($rst_item_border_radius, '2%');
-                                            } ?>><?php esc_attr_e('2%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('2%', 'really-simple-testimonials') ?></option>
 
                                             <option value="3%" <?php if (isset ($rst_item_border_radius)) {
                                                 selected($rst_item_border_radius, '3%');
-                                            } ?>><?php esc_attr_e('3%', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('3%', 'really-simple-testimonials') ?></option>
 
                                         </select>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select an option for border radius of the Item.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select an option for border radius of the Item.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -1219,7 +1219,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="rst_item_border_color"><?php esc_attr_e('Border Color', 'rst-testimonial') ?></label>
+                                        <label for="rst_item_border_color"><?php esc_attr_e('Border Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="rst_item_border_color" name="rst_item_border_color"
@@ -1228,7 +1228,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#E8E8E8");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for item border.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for item border.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -1241,11 +1241,11 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                 <li   class="box4 tab-box ">
                     <div class="wrap">
                         <div class="option-box">
-                            <p class="option-title"><?php esc_attr_e('Slider Settings', 'rst-testimonial'); ?></p>
+                            <p class="option-title"><?php esc_attr_e('Slider Settings', 'really-simple-testimonials'); ?></p>
                             <table class="form-table">
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="autoplay"><?php esc_attr_e('Autoplay', 'rst-testimonial') ?></label>
+                                        <label for="autoplay"><?php esc_attr_e('Autoplay', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -1253,20 +1253,20 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="true" <?php if ($autoplay == 'true' || $autoplay == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="autoplay_true"><?php esc_attr_e('Yes', 'rst-testimonial'); ?></label>
+                                            <label for="autoplay_true"><?php esc_attr_e('Yes', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="autoplay_false" name="autoplay"
                                                    value="false" <?php if ($autoplay == 'false') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="autoplay_false"><?php esc_attr_e('No', 'rst-testimonial'); ?></label>
+                                            <label for="autoplay_false"><?php esc_attr_e('No', 'really-simple-testimonials'); ?></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose an option whether you want the rst_slider autoplay or not.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose an option whether you want the rst_slider autoplay or not.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr> <!-- End Autoplay -->
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="autoplay_speed"><?php esc_attr_e('Slide Delay', 'rst-testimonial') ?></label>
+                                        <label for="autoplay_speed"><?php esc_attr_e('Slide Delay', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;" class="auto_play">
 
@@ -1284,35 +1284,35 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr('700');
                                                } ?>">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select a value for sliding speed.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select a value for sliding speed.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr> <!-- End Slide Delay -->
 
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="item_no"><?php esc_attr_e('Items No', 'rst-testimonial') ?></label>
+                                        <label for="item_no"><?php esc_attr_e('Items No', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <select name="item_no" id="item_no" class="timezone_string">
                                             <option value="3" <?php if (isset ($item_no)) {
                                                 selected($item_no, '3');
-                                            } ?>><?php esc_attr_e('3', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('3', 'really-simple-testimonials') ?></option>
                                             <option value="1" <?php if (isset ($item_no)) {
                                                 selected($item_no, '1');
-                                            } ?>><?php esc_attr_e('1', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('1', 'really-simple-testimonials') ?></option>
                                             <option value="2" <?php if (isset ($item_no)) {
                                                 selected($item_no, '2');
-                                            } ?>><?php esc_attr_e('2', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('2', 'really-simple-testimonials') ?></option>
                                             <option value="4" <?php if (isset ($item_no)) {
                                                 selected($item_no, '4');
-                                            } ?>><?php esc_attr_e('4', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('4', 'really-simple-testimonials') ?></option>
                                             <option value="5" <?php if (isset ($item_no)) {
                                                 selected($item_no, '5');
-                                            } ?>><?php esc_attr_e('5', 'rst-testimonial') ?></option>
+                                            } ?>><?php esc_attr_e('5', 'really-simple-testimonials') ?></option>
 
                                         </select>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Select number of items you want to show.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Select number of items you want to show.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr> <!-- End Items No -->
 
@@ -1322,7 +1322,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_designation"
-                                               class="rst_area_info"><?php esc_attr_e('Dots Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Dots Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
@@ -1330,7 +1330,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="dots"><?php esc_attr_e('Dots', 'rst-testimonial'); ?></label>
+                                        <label for="dots"><?php esc_attr_e('Dots', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -1338,15 +1338,15 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="true" <?php if ($rst_dots == 'true' || $rst_dots == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="dots_true"><?php esc_attr_e('Yes', 'rst-testimonial'); ?></label>
+                                            <label for="dots_true"><?php esc_attr_e('Yes', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="dots_false" name="dots"
                                                    value="false" <?php if ($rst_dots == 'false') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="dots_false"><?php esc_attr_e('No', 'rst-testimonial'); ?><span
-                                                        class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="dots_false"><?php esc_attr_e('No', 'really-simple-testimonials'); ?><span
+                                                        class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose an option whether you want dots option or not.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose an option whether you want dots option or not.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
 
@@ -1355,7 +1355,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="dots_text_color"><?php esc_attr_e('Inactive Dots Color', 'rst-testimonial') ?></label>
+                                        <label for="dots_text_color"><?php esc_attr_e('Inactive Dots Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="dots_text_color" size="5" type="text"
@@ -1365,7 +1365,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#f2bccc");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for Inactive Dots.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for Inactive Dots.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
                                 <!--End Dots Color-->
@@ -1375,7 +1375,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="dots_bg_color"><?php esc_attr_e('Active Dot Color', 'rst-testimonial') ?></label>
+                                        <label for="dots_bg_color"><?php esc_attr_e('Active Dot Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input id="dots_bg_color" type="text" name="dots_bg_color"
@@ -1384,7 +1384,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#e45a7e");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for Active dots.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for Active dots.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
                                 <!--End Dots Background Color-->
@@ -1398,7 +1398,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                 <tr valign="top">
                                     <th scope="row">
                                         <label for="rst_designation_designation"
-                                               class="rst_area_info"><?php esc_attr_e('Navigation Settings Area', 'rst-testimonial') ?></label>
+                                               class="rst_area_info"><?php esc_attr_e('Navigation Settings Area', 'really-simple-testimonials') ?></label>
                                         <hr/>
                                     </th>
                                 </tr>
@@ -1406,7 +1406,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
 
                                 <tr valign="top">
                                     <th scope="row">
-                                        <label for="navigation"><?php esc_attr_e('Navigation', 'rst-testimonial'); ?></label>
+                                        <label for="navigation"><?php esc_attr_e('Navigation', 'really-simple-testimonials'); ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <div class="switch-field">
@@ -1414,15 +1414,15 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                    value="true" <?php if ($navigation == 'true' || $navigation == '') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="navigation_true"><?php esc_attr_e('Yes', 'rst-testimonial'); ?></label>
+                                            <label for="navigation_true"><?php esc_attr_e('Yes', 'really-simple-testimonials'); ?></label>
                                             <input type="radio" id="navigation_false" name="navigation"
                                                    value="false" <?php if ($navigation == 'false') {
                                                 echo esc_attr('checked');
                                             } ?>/>
-                                            <label for="navigation_false"><?php esc_attr_e('No', 'rst-testimonial'); ?><span
-                                                        class="mark"><?php esc_attr_e('Pro', 'logoshowcase'); ?></span></label>
+                                            <label for="navigation_false"><?php esc_attr_e('No', 'really-simple-testimonials'); ?><span
+                                                        class="mark"><?php esc_attr_e('Pro', 'really-simple-testimonials'); ?></span></label>
                                         </div>
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose an option whether you want navigation option or not.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Choose an option whether you want navigation option or not.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
                                 <!-- End Navigation -->
@@ -1432,7 +1432,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="nav_text_color"><?php esc_attr_e('Navigation Color', 'rst-testimonial') ?></label>
+                                        <label for="nav_text_color"><?php esc_attr_e('Navigation Color', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input type="text" id="nav_text_color" size="5" type="text"
@@ -1442,7 +1442,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#E8E8E8");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for navigation tool.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for navigation tool.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
                                 <!-- End Navigation Color -->
@@ -1451,7 +1451,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                     echo esc_attr("display:none;");
                                 } ?>">
                                     <th scope="row">
-                                        <label for="nav_bg_color"><?php esc_attr_e('Navigation Background', 'rst-testimonial') ?></label>
+                                        <label for="nav_bg_color"><?php esc_attr_e('Navigation Background', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input id="nav_bg_color" type="text" name="nav_bg_color"
@@ -1460,7 +1460,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#f2bccc");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for background of navigation tool.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for background of navigation tool.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
                                 <!-- End Navigation Background Color -->
@@ -1471,7 +1471,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                         echo esc_attr("display:none;");
                                     } ?>">
                                     <th scope="row">
-                                        <label for="nav_bg_color_hover"><?php esc_attr_e('Navigation Hover Background', 'rst-testimonial') ?></label>
+                                        <label for="nav_bg_color_hover"><?php esc_attr_e('Navigation Hover Background', 'really-simple-testimonials') ?></label>
                                     </th>
                                     <td style="vertical-align: middle;">
                                         <input id="nav_bg_color_hover" type="text" name="nav_bg_color_hover"
@@ -1480,7 +1480,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                } else {
                                                    echo esc_attr("#F43F5E");
                                                } ?>" class="timezone_string">
-                                        <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Pick a color for background of navigation tool in hover.', 'rst-testimonial'); ?></span>
+                                        <span class="really-simple-testimonials-manager_hint"><?php echo esc_attr__('Pick a color for background of navigation tool in hover.', 'really-simple-testimonials'); ?></span>
                                     </td>
                                 </tr>
                                 <!-- End Navigation Hover Background Color -->
@@ -1493,30 +1493,30 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                 <li class="box6 tab-box ">
                     <div class="wrap">
                         <div class="option-box">
-                            <p class="option-title"><?php esc_attr_e('Support & Documentation', 'rst-testimonial'); ?></p>
+                            <p class="option-title"><?php esc_attr_e('Support & Documentation', 'really-simple-testimonials'); ?></p>
                             <div class="testimoinal-pro-features">
                                 <div class="help-support">
                                     <div class="support-items">
                                         <div class="support-title">
-                                            <?php echo esc_attr__('Need Support', 'rst-testimonial'); ?>
+                                            <?php echo esc_attr__('Need Support', 'really-simple-testimonials'); ?>
                                         </div>
                                         <div class="support-details">
-                                            <p><?php echo esc_attr__('If you need any helps, please don\'t hesitate to post it on WordPress.org Support Forum or Themeix Support Forum', 'rst-testimonial'); ?></p>
+                                            <p><?php echo esc_attr__('If you need any helps, please don\'t hesitate to post it on WordPress.org Support Forum or Themeix Support Forum', 'really-simple-testimonials'); ?></p>
                                         </div>
                                         <div class="support-link">
                                             <a target="_blank"
                                                href="https://wordpress.org/support/plugin/"
-                                               class="button-1"><?php echo esc_attr__('WordPress.org', 'rst-testimonial') ?></a>
+                                               class="button-1"><?php echo esc_attr__('WordPress.org', 'really-simple-testimonials') ?></a>
                                             <a target="_blank" href="https://themeix.com"
-                                               class="button-1"><?php echo esc_attr__('Themeix.com', 'rst-testimonial') ?></a>
+                                               class="button-1"><?php echo esc_attr__('Themeix.com', 'really-simple-testimonials') ?></a>
                                         </div>
                                     </div>
                                     <div class="support-items">
                                         <div class="support-title">
-                                            <?php echo esc_attr__('Happy User', 'rst-testimonial'); ?>
+                                            <?php echo esc_attr__('Happy User', 'really-simple-testimonials'); ?>
                                         </div>
                                         <div class="support-details">
-                                            <p><?php echo esc_attr__('If you are happy with the Testimonial Plugin, say it on wordpress.org and give RST Testimonial a nice review!', 'rst-testimonial'); ?></p>
+                                            <p><?php echo esc_attr__('If you are happy with the Testimonial Plugin, say it on wordpress.org and give RST Testimonial a nice review!', 'really-simple-testimonials'); ?></p>
                                         </div>
                                         <div class="support-link">
                                             <a target="_blank"
@@ -1553,7 +1553,7 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
     function rst_testimonial_meta_box_save_func($post_id)
     {
         #check nonce
-        if (!isset($_POST['rst_short_code_mt_box_nonce']) || !wp_verify_nonce($_POST['rst_short_code_mt_box_nonce'], 'rst_short_code_mt_box_action')) {
+        if (!isset($_POST['rst_short_code_mt_box_nonce']) || !wp_verify_nonce(wp_unslash($_POST['rst_short_code_mt_box_nonce']), 'rst_short_code_mt_box_action')) {
             return;
         }
 
@@ -1565,103 +1565,103 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and saves if needed
         if (isset($_POST['testimonial_cat_name'])) {
-            update_post_meta($post_id, 'testimonial_cat_name', array_map('sanitize_text_field', $_POST['testimonial_cat_name']));
+            update_post_meta($post_id, 'testimonial_cat_name', array_map('sanitize_text_field', wp_unslash($_POST['testimonial_cat_name'])));
         } else {
             delete_post_meta($post_id, 'testimonial_cat_name');
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_name_color_option'])) {
-            update_post_meta($post_id, 'rst_name_color_option', sanitize_hex_color($_POST['rst_name_color_option']));
+            update_post_meta($post_id, 'rst_name_color_option', sanitize_hex_color(wp_unslash($_POST['rst_name_color_option'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_designation_color_option'])) {
-            update_post_meta($post_id, 'rst_designation_color_option', sanitize_hex_color($_POST['rst_designation_color_option']));
+            update_post_meta($post_id, 'rst_designation_color_option', sanitize_hex_color(wp_unslash($_POST['rst_designation_color_option'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_testimonial_themes'])) {
-            update_post_meta($post_id, 'rst_testimonial_themes', sanitize_text_field($_POST['rst_testimonial_themes']));
+            update_post_meta($post_id, 'rst_testimonial_themes', sanitize_text_field(wp_unslash($_POST['rst_testimonial_themes'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_testimonial_theme_style'])) {
-            update_post_meta($post_id, 'rst_testimonial_theme_style', sanitize_text_field($_POST['rst_testimonial_theme_style']));
+            update_post_meta($post_id, 'rst_testimonial_theme_style', sanitize_text_field(wp_unslash($_POST['rst_testimonial_theme_style'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_testimonial_textalign'])) {
-            update_post_meta($post_id, 'rst_testimonial_textalign', sanitize_text_field($_POST['rst_testimonial_textalign']));
+            update_post_meta($post_id, 'rst_testimonial_textalign', sanitize_text_field(wp_unslash($_POST['rst_testimonial_textalign'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_order_by_option'])) {
-            update_post_meta($post_id, 'rst_order_by_option', sanitize_text_field($_POST['rst_order_by_option']));
+            update_post_meta($post_id, 'rst_order_by_option', sanitize_text_field(wp_unslash($_POST['rst_order_by_option'])));
         }
         #Checks for input and saves if needed
         if (isset($_POST['rst_image_sizes'])) {
-            update_post_meta($post_id, 'rst_image_sizes', sanitize_text_field($_POST['rst_image_sizes']));
+            update_post_meta($post_id, 'rst_image_sizes', sanitize_text_field(wp_unslash($_POST['rst_image_sizes'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['dpstotoal_items'])) {
-            update_post_meta($post_id, 'dpstotoal_items', sanitize_text_field($_POST['dpstotoal_items']));
+            update_post_meta($post_id, 'dpstotoal_items', sanitize_text_field(wp_unslash($_POST['dpstotoal_items'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_img_show_hide'])) {
-            update_post_meta($post_id, 'rst_img_show_hide', sanitize_text_field($_POST['rst_img_show_hide']));
+            update_post_meta($post_id, 'rst_img_show_hide', sanitize_text_field(wp_unslash($_POST['rst_img_show_hide'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_img_border_radius'])) {
-            update_post_meta($post_id, 'rst_img_border_radius', sanitize_text_field($_POST['rst_img_border_radius']));
+            update_post_meta($post_id, 'rst_img_border_radius', sanitize_text_field(wp_unslash($_POST['rst_img_border_radius'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_imgborder_width_option'])) {
-            update_post_meta($post_id, 'rst_imgborder_width_option', sanitize_text_field($_POST['rst_imgborder_width_option']));
+            update_post_meta($post_id, 'rst_imgborder_width_option', sanitize_text_field(wp_unslash($_POST['rst_imgborder_width_option'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_imgborder_color_option'])) {
-            update_post_meta($post_id, 'rst_imgborder_color_option', sanitize_hex_color($_POST['rst_imgborder_color_option']));
+            update_post_meta($post_id, 'rst_imgborder_color_option', sanitize_hex_color(wp_unslash($_POST['rst_imgborder_color_option'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_designation_show_hide'])) {
-            update_post_meta($post_id, 'rst_designation_show_hide', sanitize_text_field($_POST['rst_designation_show_hide']));
+            update_post_meta($post_id, 'rst_designation_show_hide', sanitize_text_field(wp_unslash($_POST['rst_designation_show_hide'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_company_show_hide'])) {
-            update_post_meta($post_id, 'rst_company_show_hide', sanitize_text_field($_POST['rst_company_show_hide']));
+            update_post_meta($post_id, 'rst_company_show_hide', sanitize_text_field(wp_unslash($_POST['rst_company_show_hide'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_company_url_color'])) {
-            update_post_meta($post_id, 'rst_company_url_color', sanitize_hex_color($_POST['rst_company_url_color']));
+            update_post_meta($post_id, 'rst_company_url_color', sanitize_hex_color(wp_unslash($_POST['rst_company_url_color'])));
         }
 
         #Checks for input and saves
         if (isset($_POST['rst_name_fontsize_option'])) {
-            update_post_meta($post_id, 'rst_name_fontsize_option', sanitize_text_field($_POST['rst_name_fontsize_option']));
+            update_post_meta($post_id, 'rst_name_fontsize_option', sanitize_text_field(wp_unslash($_POST['rst_name_fontsize_option'])));
         }
 
         #Checks for input and saves
         if (isset($_POST['rst_name_font_case'])) {
-            update_post_meta($post_id, 'rst_name_font_case', sanitize_text_field($_POST['rst_name_font_case']));
+            update_post_meta($post_id, 'rst_name_font_case', sanitize_text_field(wp_unslash($_POST['rst_name_font_case'])));
         }
 
         #Checks for input and saves
         if (isset($_POST['rst_name_font_style'])) {
-            update_post_meta($post_id, 'rst_name_font_style', sanitize_text_field($_POST['rst_name_font_style']));
+            update_post_meta($post_id, 'rst_name_font_style', sanitize_text_field(wp_unslash($_POST['rst_name_font_style'])));
         }
 
         #Checks for input and saves
         if (isset($_POST['rst_designation_case'])) {
-            update_post_meta($post_id, 'rst_designation_case', sanitize_text_field($_POST['rst_designation_case']));
+            update_post_meta($post_id, 'rst_designation_case', sanitize_text_field(wp_unslash($_POST['rst_designation_case'])));
         }
 
         #Checks for input and saves
@@ -1687,7 +1687,7 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and saves
         if (isset($_POST['rst_content_bg_color'])) {
-            update_post_meta($post_id, 'rst_content_bg_color', sanitize_hex_color($_POST['rst_content_bg_color']));
+            update_post_meta($post_id, 'rst_content_bg_color', sanitize_hex_color(wp_unslash($_POST['rst_content_bg_color'])));
         }
 
         #Checks for input and saves
@@ -1702,7 +1702,7 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and saves
         if (isset($_POST['rst_content_color'])) {
-            update_post_meta($post_id, 'rst_content_color', sanitize_hex_color($_POST['rst_content_color']));
+            update_post_meta($post_id, 'rst_content_color', sanitize_hex_color(wp_unslash($_POST['rst_content_color'])));
         }
 
         #Checks for input and saves
@@ -1722,12 +1722,12 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and saves
         if (isset($_POST['rst_rating_color'])) {
-            update_post_meta($post_id, 'rst_rating_color', sanitize_hex_color($_POST['rst_rating_color']));
+            update_post_meta($post_id, 'rst_rating_color', sanitize_hex_color(wp_unslash($_POST['rst_rating_color'])));
         }
 
         #Checks for input and saves
         if (isset($_POST['rst_item_bg_color'])) {
-            update_post_meta($post_id, 'rst_item_bg_color', sanitize_hex_color($_POST['rst_item_bg_color']));
+            update_post_meta($post_id, 'rst_item_bg_color', sanitize_hex_color(wp_unslash($_POST['rst_item_bg_color'])));
         }
         #Checks for input and saves
         if (isset($_POST['rst_item_padding'])) {
@@ -1741,7 +1741,7 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and saves
         if (isset($_POST['rst_item_border_color'])) {
-            update_post_meta($post_id, 'rst_item_border_color', sanitize_hex_color($_POST['rst_item_border_color']));
+            update_post_meta($post_id, 'rst_item_border_color', sanitize_hex_color(wp_unslash($_POST['rst_item_border_color'])));
         }
 
         // Carousal Settings
@@ -1769,12 +1769,12 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['dots_text_color']) && ($_POST['dots_text_color'] != '')) {
-            update_post_meta($post_id, 'dots_text_color', sanitize_hex_color($_POST['dots_text_color']));
+            update_post_meta($post_id, 'dots_text_color', sanitize_hex_color(wp_unslash($_POST['dots_text_color'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['dots_bg_color']) && ($_POST['dots_bg_color'] != '')) {
-            update_post_meta($post_id, 'dots_bg_color', sanitize_hex_color($_POST['dots_bg_color']));
+            update_post_meta($post_id, 'dots_bg_color', sanitize_hex_color(wp_unslash($_POST['dots_bg_color'])));
         }
 
         #Checks for input and sanitizes/saves if needed
@@ -1810,12 +1810,12 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['pagination_bg_color']) && ($_POST['pagination_bg_color'] != '')) {
-            update_post_meta($post_id, 'pagination_bg_color', sanitize_hex_color($_POST['pagination_bg_color']));
+            update_post_meta($post_id, 'pagination_bg_color', sanitize_hex_color(wp_unslash($_POST['pagination_bg_color'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['pagination_bg_color_active']) && ($_POST['pagination_bg_color_active'] != '')) {
-            update_post_meta($post_id, 'pagination_bg_color_active', sanitize_hex_color($_POST['pagination_bg_color_active']));
+            update_post_meta($post_id, 'pagination_bg_color_active', sanitize_hex_color(wp_unslash($_POST['pagination_bg_color_active'])));
         }
 
         #Checks for input and sanitizes/saves if needed
@@ -1869,22 +1869,22 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['nav_text_color']) && ($_POST['nav_text_color'] != '')) {
-            update_post_meta($post_id, 'nav_text_color', sanitize_hex_color($_POST['nav_text_color']));
+            update_post_meta($post_id, 'nav_text_color', sanitize_hex_color(wp_unslash($_POST['nav_text_color'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['nav_text_color_hover']) && ($_POST['nav_text_color_hover'] != '')) {
-            update_post_meta($post_id, 'nav_text_color_hover', sanitize_hex_color($_POST['nav_text_color_hover']));
+            update_post_meta($post_id, 'nav_text_color_hover', sanitize_hex_color(wp_unslash($_POST['nav_text_color_hover'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['nav_bg_color']) && ($_POST['nav_bg_color'] != '')) {
-            update_post_meta($post_id, 'nav_bg_color', sanitize_hex_color($_POST['nav_bg_color']));
+            update_post_meta($post_id, 'nav_bg_color', sanitize_hex_color(wp_unslash($_POST['nav_bg_color'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['nav_bg_color_hover']) && ($_POST['nav_bg_color_hover'] != '')) {
-            update_post_meta($post_id, 'nav_bg_color_hover', sanitize_hex_color($_POST['nav_bg_color_hover']));
+            update_post_meta($post_id, 'nav_bg_color_hover', sanitize_hex_color(wp_unslash($_POST['nav_bg_color_hover'])));
         }
 
         #Value check and saves if needed

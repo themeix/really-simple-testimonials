@@ -13,21 +13,21 @@ if (!function_exists('rst_testimonial_init')) {
     {
         register_post_type('rst_testimonial', array(
             'labels' => array(
-                'name' => esc_attr__('Testimonials', 'rst-testimonial'),
-                'singular_name' => esc_attr__('Testimonial', 'rst-testimonial'),
-                'add_new' => esc_attr__('Add New', 'rst-testimonial'),
-                'add_new_item' => esc_attr__('Add New Testimonial', 'rst-testimonial'),
-                'edit_item' => esc_attr__('Edit Testimonial', 'rst-testimonial'),
-                'new_item' => esc_attr__('New Testimonial', 'rst-testimonial'),
-                'view_item' => esc_attr__('View Testimonial', 'rst-testimonial'),
-                'search_items' => esc_attr__('Search Testimonials', 'rst-testimonial'),
-                'not_found' => esc_attr__('No Testimonials found', 'rst-testimonial'),
-                'not_found_in_trash' => esc_attr__('No Testimonials found in Trash', 'rst-testimonial'),
-                'parent_item_colon' => esc_attr__('Parent Testimonial:', 'rst-testimonial'),
-                'menu_name' => esc_attr__('Testimonials', 'rst-testimonial'),
+                'name' => esc_attr__('Testimonials', 'really-simple-testimonials'),
+                'singular_name' => esc_attr__('Testimonial', 'really-simple-testimonials'),
+                'add_new' => esc_attr__('Add New', 'really-simple-testimonials'),
+                'add_new_item' => esc_attr__('Add New Testimonial', 'really-simple-testimonials'),
+                'edit_item' => esc_attr__('Edit Testimonial', 'really-simple-testimonials'),
+                'new_item' => esc_attr__('New Testimonial', 'really-simple-testimonials'),
+                'view_item' => esc_attr__('View Testimonial', 'really-simple-testimonials'),
+                'search_items' => esc_attr__('Search Testimonials', 'really-simple-testimonials'),
+                'not_found' => esc_attr__('No Testimonials found', 'really-simple-testimonials'),
+                'not_found_in_trash' => esc_attr__('No Testimonials found in Trash', 'really-simple-testimonials'),
+                'parent_item_colon' => esc_attr__('Parent Testimonial:', 'really-simple-testimonials'),
+                'menu_name' => esc_attr__('Testimonials', 'really-simple-testimonials'),
             ),
             'hierarchical' => false,
-            'description' => esc_attr__('Testimonial', 'rst-testimonial'),
+            'description' => esc_attr__('Testimonial', 'really-simple-testimonials'),
             'supports' => array('title', 'editor', 'thumbnail'),
             'public' => true,
             'show_ui' => true,
@@ -57,17 +57,17 @@ if (!function_exists('rst_create_testimonial_taxonomies')) {
     {
         // Add new taxonomy, make it hierarchical (like categories)
         $labels = array(
-            'name' => esc_attr_x('Testimonial Categories', 'taxonomy general name', 'rst-testimonial'),
-            'singular_name' => esc_attr_x('Testimonial Category', 'taxonomy singular name', 'rst-testimonial'),
-            'search_items' => esc_attr__('Search Testimonial Categories', 'rst-testimonial'),
-            'all_items' => esc_attr__('All Testimonial Categories', 'rst-testimonial'),
-            'parent_item' => esc_attr__('Parent Testimonial Category', 'rst-testimonial'),
-            'parent_item_colon' => esc_attr__('Parent Testimonial Category:', 'rst-testimonial'),
-            'edit_item' => esc_attr__('Edit Testimonial Category', 'rst-testimonial'),
-            'update_item' => esc_attr__('Update Testimonial Category', 'rst-testimonial'),
-            'add_new_item' => esc_attr__('Add New Testimonial Category', 'rst-testimonial'),
-            'new_item_name' => esc_attr__('New Testimonial Category Name', 'rst-testimonial'),
-            'menu_name' => esc_attr__('Categories', 'rst-testimonial'),
+            'name' => esc_attr_x('Testimonial Categories', 'taxonomy general name', 'really-simple-testimonials'),
+            'singular_name' => esc_attr_x('Testimonial Category', 'taxonomy singular name', 'really-simple-testimonials'),
+            'search_items' => esc_attr__('Search Testimonial Categories', 'really-simple-testimonials'),
+            'all_items' => esc_attr__('All Testimonial Categories', 'really-simple-testimonials'),
+            'parent_item' => esc_attr__('Parent Testimonial Category', 'really-simple-testimonials'),
+            'parent_item_colon' => esc_attr__('Parent Testimonial Category:', 'really-simple-testimonials'),
+            'edit_item' => esc_attr__('Edit Testimonial Category', 'really-simple-testimonials'),
+            'update_item' => esc_attr__('Update Testimonial Category', 'really-simple-testimonials'),
+            'add_new_item' => esc_attr__('Add New Testimonial Category', 'really-simple-testimonials'),
+            'new_item_name' => esc_attr__('New Testimonial Category Name', 'really-simple-testimonials'),
+            'menu_name' => esc_attr__('Categories', 'really-simple-testimonials'),
         );
 
         register_taxonomy('rst_testimonial_category', array('rst_testimonial'), array(
@@ -104,13 +104,13 @@ if (!function_exists('rst_testimonial_columns')) {
 
         return array_merge($columns,
             array(
-                "title" => esc_attr__('Name', 'rst-testimonial'),
-                "thumbnail" => esc_attr__('Image', 'rst-testimonial'),
-                "description" => esc_attr__('Testimonial Description', 'rst-testimonial'),
-                "clientratings" => esc_attr__('Rating', 'rst-testimonial'),
-                "position" => esc_attr__('Position', 'rst-testimonial'),
-                "rstcategories" => esc_attr__('Categories', 'rst-testimonial'),
-                "date" => esc_attr__('Date', 'rst-testimonial'),
+                "title" => esc_attr__('Name', 'really-simple-testimonials'),
+                "thumbnail" => esc_attr__('Image', 'really-simple-testimonials'),
+                "description" => esc_attr__('Testimonial Description', 'really-simple-testimonials'),
+                "clientratings" => esc_attr__('Rating', 'really-simple-testimonials'),
+                "position" => esc_attr__('Position', 'really-simple-testimonials'),
+                "rstcategories" => esc_attr__('Categories', 'really-simple-testimonials'),
+                "date" => esc_attr__('Date', 'really-simple-testimonials'),
             )
         );
     }
@@ -131,7 +131,7 @@ if (!function_exists('rst_testimonial_columns_display')) {
                 $thumb = wp_get_attachment_image($thumbnail_id, array($width, $height), true);
                 echo wp_kses_post($thumb);
             } else {
-                echo esc_attr__('None', 'rst-testimonial');
+                echo esc_attr__('None', 'really-simple-testimonials');
             }
         }
         if ('position' == $rst_columns) {
@@ -181,7 +181,7 @@ if (!function_exists('rst_testimonial_columns_display')) {
                     if ($i + 1 != $count) {
                         echo esc_attr(", ");
                     }
-                    echo '<a href="' . admin_url('edit.php?post_type=rst_shortcode&rst_testimonial_category=' . esc_attr($term->slug)) . '">' . esc_attr($term->name) . '</a>';
+                    echo '<a href="' . esc_url(admin_url('edit.php?post_type=rst_shortcode&rst_testimonial_category=' . esc_attr($term->slug))) . '">' . esc_attr($term->name) . '</a>';
                     $i++;
                 }
             }
@@ -234,7 +234,7 @@ if (!function_exists('rst_testimonial_meta_box')) {
     {
         add_meta_box(
             'custom_meta_box', // $id
-            esc_attr__('Testimonial Information ', 'rst-testimonial'), // $title
+            esc_attr__('Testimonial Information ', 'really-simple-testimonials'), // $title
             'rst_testimonials_inner_custom_box', // $callback
             'rst_testimonial', // $page
             'normal', // $context
@@ -267,7 +267,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         ?>
 
         <!-- Name -->
-        <p><label for="title"><strong><?php esc_attr_e('Name:', 'rst-testimonial'); ?></strong></label></p>
+        <p><label for="title"><strong><?php esc_attr_e('Name:', 'really-simple-testimonials'); ?></strong></label></p>
 
         <input type="text" name="post_title" id="title" class="regular-text code"
                value="<?php echo esc_attr($saved_name ? $saved_name : $post->post_title); ?>"/>
@@ -275,7 +275,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         <hr class="horizontalRuler"/>
 
         <!-- Position -->
-        <p><label for="position_input"><strong><?php esc_attr_e('Position:', 'rst-testimonial'); ?></strong></label></p>
+        <p><label for="position_input"><strong><?php esc_attr_e('Position:', 'really-simple-testimonials'); ?></strong></label></p>
 
         <input type="text" name="position_input" id="position_input" class="regular-text code"
                value="<?php echo esc_attr($saved_position ? $saved_position : $rst_position); ?>"/>
@@ -283,7 +283,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         <hr class="horizontalRuler"/>
 
         <!-- Company Name -->
-        <p><label for="company_input"><strong><?php esc_attr_e('Company Name:', 'rst-testimonial'); ?></strong></label></p>
+        <p><label for="company_input"><strong><?php esc_attr_e('Company Name:', 'really-simple-testimonials'); ?></strong></label></p>
 
         <input type="text" name="company_input" id="company_input" class="regular-text code"
                value="<?php echo esc_attr($saved_company ? $saved_company : $rst_company); ?>"/>
@@ -291,58 +291,58 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         <hr class="horizontalRuler"/>
 
         <!-- Company Website -->
-        <p><label for="company_website_input"><strong><?php esc_attr_e('Company URL:', 'rst-testimonial'); ?></strong></label>
+        <p><label for="company_website_input"><strong><?php esc_attr_e('Company URL:', 'really-simple-testimonials'); ?></strong></label>
         </p>
 
         <input type="text" name="company_website_input" id="company_website_input" class="regular-text code"
                value="<?php echo esc_url($saved_company_url ? $saved_company_url : $rst_company_url); ?>"/>
 
-        <p><span class="description"><?php esc_attr_e('Example: (www.example.com)', 'rst-testimonial'); ?></span></p>
+        <p><span class="description"><?php esc_attr_e('Example: (www.example.com)', 'really-simple-testimonials'); ?></span></p>
 
         <hr class="horizontalRuler"/>
 
         <!-- Company Link Target -->
         <p>
-            <label for="company_link_target_list"><strong><?php esc_attr_e('Link Target:', 'rst-testimonial'); ?></strong></label>
+            <label for="company_link_target_list"><strong><?php esc_attr_e('Link Target:', 'really-simple-testimonials'); ?></strong></label>
         </p>
 
         <select id="company_link_target_list" name="company_link_target_list">
             <option value="_blank" <?php if (get_post_meta($post->ID, 'company_link_target', true) == '_blank') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('blank', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('blank', 'really-simple-testimonials'); ?></option>
             <option value="_self" <?php if (get_post_meta($post->ID, 'company_link_target', true) == '_self') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('self', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('self', 'really-simple-testimonials'); ?></option>
         </select>
 
         <hr class="horizontalRuler"/>
         <!-- Rating -->
 
-        <p><label for="company_rating_target_list"><strong><?php esc_attr_e('Rating:', 'rst-testimonial'); ?></strong></label>
+        <p><label for="company_rating_target_list"><strong><?php esc_attr_e('Rating:', 'really-simple-testimonials'); ?></strong></label>
         </p>
 
         <select id="company_rating_target_list" name="company_rating_target_list">
             <option value="5" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '5') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('5 Star', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('5 Star', 'really-simple-testimonials'); ?></option>
             <option value="4.5" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '4.5') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('4.5 Star', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('4.5 Star', 'really-simple-testimonials'); ?></option>
             <option value="4" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '4') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('4 Star', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('4 Star', 'really-simple-testimonials'); ?></option>
             <option value="3.5" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '3.5') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('3.5 Star', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('3.5 Star', 'really-simple-testimonials'); ?></option>
             <option value="3" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '3') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('3 Star', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('3 Star', 'really-simple-testimonials'); ?></option>
             <option value="2" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '2') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('2 Star', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('2 Star', 'really-simple-testimonials'); ?></option>
             <option value="1" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '1') {
                 echo esc_attr('selected');
-            } ?> ><?php esc_attr_e('1 Star', 'rst-testimonial'); ?></option>
+            } ?> ><?php esc_attr_e('1 Star', 'really-simple-testimonials'); ?></option>
         </select>
 
         <hr class="horizontalRuler"/>
@@ -350,7 +350,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         <!-- Testimonial Text -->
 
         <p>
-            <label for="testimonial_text_input"><strong><?php esc_attr_e('Testimonial Text:', 'rst-testimonial'); ?></strong></label>
+            <label for="testimonial_text_input"><strong><?php esc_attr_e('Testimonial Text:', 'really-simple-testimonials'); ?></strong></label>
         </p>
 
         <textarea type="text" name="testimonial_text_input" id="testimonial_text_input" class="regular-text code"
@@ -373,42 +373,42 @@ if (!function_exists('rst_testimonials_save_meta_box')) {
     function rst_testimonials_save_meta_box($post_id)
     {
         //check nonce field  and verify it
-        if (!isset($_POST['rst_testimonial_inner_custom_box_nonce']) || !wp_verify_nonce($_POST['rst_testimonial_inner_custom_box_nonce'], 'rst_testimonial_inner_custom_box')) {
+        if (!isset($_POST['rst_testimonial_inner_custom_box_nonce']) || !wp_verify_nonce(wp_unslash($_POST['rst_testimonial_inner_custom_box_nonce']), 'rst_testimonial_inner_custom_box')) {
             return;
         } else {
 
             if (isset($_POST['post_title'])) {
-                $name = sanitize_text_field($_POST['post_title']);
+                $name = sanitize_text_field(wp_unslash($_POST['post_title']));
                 update_post_meta($post_id, 'name', $name);
             }
 
             if (isset($_POST['position_input'])) {
-                $position = sanitize_text_field($_POST['position_input']);
+                $position = sanitize_text_field(wp_unslash($_POST['position_input']));
                 update_post_meta($post_id, 'position', $position);
             }
 
             if (isset($_POST['company_input'])) {
-                $company = sanitize_text_field($_POST['company_input']);
+                $company = sanitize_text_field(wp_unslash($_POST['company_input']));
                 update_post_meta($post_id, 'company', $company);
             }
 
             if (isset($_POST['company_website_input'])) {
-                $company_website = esc_url_raw($_POST['company_website_input']);
+                $company_website = esc_url_raw(wp_unslash($_POST['company_website_input']));
                 update_post_meta($post_id, 'company_website', $company_website);
             }
 
             if (isset($_POST['company_link_target_list'])) {
-                $company_link_target = sanitize_text_field($_POST['company_link_target_list']);
+                $company_link_target = sanitize_text_field(wp_unslash($_POST['company_link_target_list']));
                 update_post_meta($post_id, 'company_link_target', $company_link_target);
             }
 
             if (isset($_POST['company_rating_target_list'])) {
-                $company_rating_target = sanitize_text_field($_POST['company_rating_target_list']);
+                $company_rating_target = sanitize_text_field(wp_unslash($_POST['company_rating_target_list']));
                 update_post_meta($post_id, 'company_rating_target', $company_rating_target);
             }
 
             if (isset($_POST['testimonial_text_input'])) {
-                $testimonial_text = sanitize_text_field($_POST['testimonial_text_input']);
+                $testimonial_text = sanitize_text_field(wp_unslash($_POST['testimonial_text_input']));
                 update_post_meta($post_id, 'testimonial_text', $testimonial_text);
             }
         }
@@ -430,7 +430,7 @@ if (!function_exists('rst_single_repeater_meta_boxes')) {
     function rst_single_repeater_meta_boxes()
     {
         add_meta_box('single-repeater-data',
-            esc_attr__('Social Links' , 'rst-testimonial'),
+            esc_attr__('Social Links' , 'really-simple-testimonials'),
             'rst_single_repeatable_meta_box_callback',
             'rst_testimonial',
             'normal',
@@ -471,11 +471,11 @@ if (!function_exists('rst_single_repeatable_meta_box_callback')) {
                 <tr>
                     <td>
                         <select name="title[]" class="rst_repeat_field" id="title[]">
-                            <option value=""><?php esc_attr_e('--Select--','rst-testimonial') ?></option>
-                            <option value="facebook"><?php esc_attr_e('Facebook','rst-testimonial') ?></option>
-                            <option value="twitter"><?php esc_attr_e('Twitter','rst-testimonial') ?></option>
-                            <option value="linkedin"><?php esc_attr_e('Linkedin','rst-testimonial') ?></option>
-                            <option value="instagram"><?php esc_attr_e('Instagram','rst-testimonial') ?></option>
+                            <option value=""><?php esc_attr_e('--Select--','really-simple-testimonials') ?></option>
+                            <option value="facebook"><?php esc_attr_e('Facebook','really-simple-testimonials') ?></option>
+                            <option value="twitter"><?php esc_attr_e('Twitter','really-simple-testimonials') ?></option>
+                            <option value="linkedin"><?php esc_attr_e('Linkedin','really-simple-testimonials') ?></option>
+                            <option value="instagram"><?php esc_attr_e('Instagram','really-simple-testimonials') ?></option>
                         </select>
                     </td>
 
@@ -487,20 +487,20 @@ if (!function_exists('rst_single_repeatable_meta_box_callback')) {
             <tr class="empty-row custom-repeater-text" style="display: none">
                 <td>
                     <select name="title[]" class="rst_repeat_field">
-                        <option value=""><?php esc_attr_e('--Select--','rst-testimonial') ?></option>
-                        <option value="facebook"><?php esc_attr_e('Facebook','rst-testimonial') ?></option>
-                        <option value="twitter"><?php esc_attr_e('Twitter','rst-testimonial') ?></option>
-                        <option value="linkedin"><?php esc_attr_e('Linkedin','rst-testimonial') ?></option>
-                        <option value="instagram"><?php esc_attr_e('Instagram','rst-testimonial') ?></option>
+                        <option value=""><?php esc_attr_e('--Select--','really-simple-testimonials') ?></option>
+                        <option value="facebook"><?php esc_attr_e('Facebook','really-simple-testimonials') ?></option>
+                        <option value="twitter"><?php esc_attr_e('Twitter','really-simple-testimonials') ?></option>
+                        <option value="linkedin"><?php esc_attr_e('Linkedin','really-simple-testimonials') ?></option>
+                        <option value="instagram"><?php esc_attr_e('Instagram','really-simple-testimonials') ?></option>
                     </select>
                 </td>
                 <td><input type="text" class="rst_repeat_field" name="tdesc[]" value="" placeholder="Link"/></td>
-                <td><a class="button remove-row" href="javascript:void(0);"><?php esc_attr_e('Remove','rst-testimonial') ?></a></td>
+                <td><a class="button remove-row" href="javascript:void(0);"><?php esc_attr_e('Remove','really-simple-testimonials') ?></a></td>
             </tr>
 
             </tbody>
         </table>
-        <p><a id="add-row" class="button" href="#"><?php esc_attr_e('Add another','rst-testimonial') ?></a></p>
+        <p><a id="add-row" class="button" href="#"><?php esc_attr_e('Add another','really-simple-testimonials') ?></a></p>
         <?php
     }
 }
@@ -511,7 +511,7 @@ add_action('save_post', 'rst_single_repeatable_meta_box_save');
 if (!function_exists('rst_single_repeatable_meta_box_save')) {
     function rst_single_repeatable_meta_box_save($post_id)
     {
-        if (!isset($_POST['rst_testimonial_repeaterBox_nonce']) || !wp_verify_nonce($_POST['rst_testimonial_repeaterBox_nonce'], 'rst_testimonial_repeaterBox')) {
+        if (!isset($_POST['rst_testimonial_repeaterBox_nonce']) || !wp_verify_nonce(wp_unslash($_POST['rst_testimonial_repeaterBox_nonce']), 'rst_testimonial_repeaterBox')) {
             return;
         }
 
@@ -530,19 +530,19 @@ if (!function_exists('rst_single_repeatable_meta_box_save')) {
 
         if (isset($_POST['title'])) {
             //sanitize a array
-            $titles = array_map('sanitize_text_field', $_POST['title']);
+            $titles = array_map('sanitize_text_field', wp_unslash($_POST['title']));
         }
 
         if (isset($_POST['tdesc'])) {
             //sanitize a array
-            $tdescs = array_map('sanitize_text_field', $_POST['tdesc']);
+            $tdescs = array_map('sanitize_text_field', wp_unslash($_POST['tdesc']));
         }
 
 
         $count = count($titles);
         for ($i = 0; $i < $count; $i++) {
             if ($titles[$i] != '') {
-                $new[$i]['title'] = stripslashes(strip_tags($titles[$i]));
+                $new[$i]['title'] = stripslashes(wp_strip_all_tags($titles[$i]));
                 $new[$i]['tdesc'] = stripslashes($tdescs[$i]);
             }
         }
