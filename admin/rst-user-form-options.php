@@ -16,71 +16,73 @@ function rst_ajax_save_user_form_options() {
     }
 
     if (isset($_POST['rstoptions'])) {
-        update_option('rst_user_fields', array_map('sanitize_text_field', $_POST['rstoptions']));
+        $rstoptions = wp_unslash($_POST['rstoptions']);
+        $rstoptions = array_map('sanitize_text_field', $rstoptions);
+        update_option('rst_user_fields', $rstoptions);
     }
 
     if (isset($_POST['rst_user_title'])) {
-        update_option('rst_user_title', sanitize_text_field($_POST['rst_user_title']));
+        update_option('rst_user_title', sanitize_text_field(wp_unslash($_POST['rst_user_title'])));
     }
 
     if (isset($_POST['rst_user_name'])) {
-        update_option('rst_user_name', sanitize_text_field($_POST['rst_user_name']));
+        update_option('rst_user_name', sanitize_text_field(wp_unslash($_POST['rst_user_name'])));
     }
 
     if (isset($_POST['rst_user_designation'])) {
-        update_option('rst_user_designation', sanitize_text_field($_POST['rst_user_designation']));
+        update_option('rst_user_designation', sanitize_text_field(wp_unslash($_POST['rst_user_designation'])));
     }
 
     if (isset($_POST['rst_user_company_name'])) {
-        update_option('rst_user_company_name', sanitize_text_field($_POST['rst_user_company_name']));
+        update_option('rst_user_company_name', sanitize_text_field(wp_unslash($_POST['rst_user_company_name'])));
     }
 
     if (isset($_POST['rst_user_company_url'])) {
-        update_option('rst_user_company_url', sanitize_text_field($_POST['rst_user_company_url']));
+        update_option('rst_user_company_url', sanitize_text_field(wp_unslash($_POST['rst_user_company_url'])));
     }
 
     if (isset($_POST['rst_user_rating'])) {
-        update_option('rst_user_rating', sanitize_text_field($_POST['rst_user_rating']));
+        update_option('rst_user_rating', sanitize_text_field(wp_unslash($_POST['rst_user_rating'])));
     }
 
     if (isset($_POST['rst_user_testi_text'])) {
-        update_option('rst_user_testi_text', sanitize_text_field($_POST['rst_user_testi_text']));
+        update_option('rst_user_testi_text', sanitize_text_field(wp_unslash($_POST['rst_user_testi_text'])));
     }
 
     if (isset($_POST['rst_user_categories'])) {
-        update_option('rst_user_categories', sanitize_text_field($_POST['rst_user_categories']));
+        update_option('rst_user_categories', sanitize_text_field(wp_unslash($_POST['rst_user_categories'])));
     }
 
     if (isset($_POST['rst_user_logo_img'])) {
-        update_option('rst_user_logo_img', sanitize_text_field($_POST['rst_user_logo_img']));
+        update_option('rst_user_logo_img', sanitize_text_field(wp_unslash($_POST['rst_user_logo_img'])));
     }
 
     if (isset($_POST['rst_user_calculate'])) {
-        update_option('rst_user_calculate', sanitize_text_field($_POST['rst_user_calculate']));
+        update_option('rst_user_calculate', sanitize_text_field(wp_unslash($_POST['rst_user_calculate'])));
     }
 
     if (isset($_POST['rst_post_status'])) {
-        update_option('rst_post_status', sanitize_text_field($_POST['rst_post_status']));
+        update_option('rst_post_status', sanitize_text_field(wp_unslash($_POST['rst_post_status'])));
     }
 
     if (isset($_POST['rst_user_submit_btn_text'])) {
-        update_option('rst_user_submit_btn_text', sanitize_text_field($_POST['rst_user_submit_btn_text']));
+        update_option('rst_user_submit_btn_text', sanitize_text_field(wp_unslash($_POST['rst_user_submit_btn_text'])));
     }
 
     if (isset($_POST['rst_save_success_text'])) {
-        update_option('rst_save_success_text', sanitize_textarea_field($_POST['rst_save_success_text']));
+        update_option('rst_save_success_text', sanitize_textarea_field(wp_unslash($_POST['rst_save_success_text'])));
     }
 
     if (isset($_POST['rst_save_error_text'])) {
-        update_option('rst_save_error_text', sanitize_textarea_field($_POST['rst_save_error_text']));
+        update_option('rst_save_error_text', sanitize_textarea_field(wp_unslash($_POST['rst_save_error_text'])));
     }
 
     if (isset($_POST['rst_file_mishmatch_text'])) {
-        update_option('rst_file_mishmatch_text', sanitize_textarea_field($_POST['rst_file_mishmatch_text']));
+        update_option('rst_file_mishmatch_text', sanitize_textarea_field(wp_unslash($_POST['rst_file_mishmatch_text'])));
     }
 
     if (isset($_POST['rst_calc_error_text'])) {
-        update_option('rst_calc_error_text', sanitize_textarea_field($_POST['rst_calc_error_text']));
+        update_option('rst_calc_error_text', sanitize_textarea_field(wp_unslash($_POST['rst_calc_error_text'])));
     }
 
     wp_send_json_success(array('message' => 'Settings saved successfully.'));
@@ -505,23 +507,21 @@ add_action('wp_ajax_nopriv_rst_handle_frontend_submission', 'rst_handle_frontend
 function rst_handle_frontend_submission() {
     check_ajax_referer('rst_frontend_submit_action', 'rst_frontend_nonce');
     
-    error_log('POST data received: ' . print_r($_POST, true));
-    error_log('FILES data received: ' . print_r($_FILES, true));
     
     $post_status = get_option('rst_post_status', 'draft');
     $selected_fields = get_option('rst_user_fields', array());
     
-    $post_title = isset($_POST['rst_name']) ? sanitize_text_field($_POST['rst_name']) : '';
+    $post_title = isset($_POST['rst_name']) ? sanitize_text_field(wp_unslash($_POST['rst_name'])) : '';
     
     if (in_array('Title', $selected_fields) && isset($_POST['rst_title'])) {
-        $post_title = sanitize_text_field($_POST['rst_title']);
+        $post_title = sanitize_text_field(wp_unslash($_POST['rst_title']));
     }
     
     if (empty($post_title)) {
         $post_title = 'Untitled Testimonial';
     }
     
-    $post_content = isset($_POST['rst_testimonial']) ? sanitize_textarea_field($_POST['rst_testimonial']) : '';
+    $post_content = isset($_POST['rst_testimonial']) ? sanitize_textarea_field(wp_unslash($_POST['rst_testimonial'])) : '';
     
     $post_data = array(
         'post_title'    => $post_title,
@@ -533,44 +533,36 @@ function rst_handle_frontend_submission() {
     $post_id = wp_insert_post($post_data);
     
     if (is_wp_error($post_id)) {
-        error_log('Post creation error: ' . $post_id->get_error_message());
         wp_send_json_error(array('message' => $post_id->get_error_message()));
     }
     
-    error_log('Post created with ID: ' . $post_id);
     
     if (!empty($_POST['rst_name'])) {
-        update_post_meta($post_id, 'name', sanitize_text_field($_POST['rst_name']));
-        error_log('Saved name: ' . sanitize_text_field($_POST['rst_name']));
+        update_post_meta($post_id, 'name', sanitize_text_field(wp_unslash($_POST['rst_name'])));
     }
     
     if (!empty($_POST['rst_designation'])) {
-        update_post_meta($post_id, 'position', sanitize_text_field($_POST['rst_designation']));
-        update_post_meta($post_id, 'rst_designation', sanitize_text_field($_POST['rst_designation']));
-        error_log('Saved designation: ' . sanitize_text_field($_POST['rst_designation']));
+        update_post_meta($post_id, 'position', sanitize_text_field(wp_unslash($_POST['rst_designation'])));
+        update_post_meta($post_id, 'rst_designation', sanitize_text_field(wp_unslash($_POST['rst_designation'])));
     }
     
     if (!empty($_POST['rst_company_name'])) {
-        update_post_meta($post_id, 'company', sanitize_text_field($_POST['rst_company_name']));
-        update_post_meta($post_id, 'rst_company_name', sanitize_text_field($_POST['rst_company_name']));
-        error_log('Saved company name: ' . sanitize_text_field($_POST['rst_company_name']));
+        update_post_meta($post_id, 'company', sanitize_text_field(wp_unslash($_POST['rst_company_name'])));
+        update_post_meta($post_id, 'rst_company_name', sanitize_text_field(wp_unslash($_POST['rst_company_name'])));
     }
     
     if (!empty($_POST['rst_company_url'])) {
-        update_post_meta($post_id, 'company_website', esc_url_raw($_POST['rst_company_url']));
-        update_post_meta($post_id, 'rst_company_url', esc_url_raw($_POST['rst_company_url']));
-        error_log('Saved company URL: ' . esc_url_raw($_POST['rst_company_url']));
+        update_post_meta($post_id, 'company_website', esc_url_raw(wp_unslash($_POST['rst_company_url'])));
+        update_post_meta($post_id, 'rst_company_url', esc_url_raw(wp_unslash($_POST['rst_company_url'])));
     }
     
     if (!empty($_POST['rst_rating'])) {
-        update_post_meta($post_id, 'company_rating_target', sanitize_text_field($_POST['rst_rating']));
-        update_post_meta($post_id, 'rst_rating', sanitize_text_field($_POST['rst_rating']));
-        error_log('Saved rating: ' . sanitize_text_field($_POST['rst_rating']));
+        update_post_meta($post_id, 'company_rating_target', sanitize_text_field(wp_unslash($_POST['rst_rating'])));
+        update_post_meta($post_id, 'rst_rating', sanitize_text_field(wp_unslash($_POST['rst_rating'])));
     }
     
     if (!empty($post_content)) {
         update_post_meta($post_id, 'testimonial_text', $post_content);
-        error_log('Saved testimonial text');
     }
     
     if (!empty($_POST['rst_categories']) && is_array($_POST['rst_categories'])) {
@@ -578,22 +570,24 @@ function rst_handle_frontend_submission() {
         $category_ids = array_filter($category_ids);
         if (!empty($category_ids)) {
             wp_set_object_terms($post_id, $category_ids, 'rst_testimonial_category');
-            error_log('Saved categories: ' . implode(',', $category_ids));
         }
     }
     
     if (!empty($_FILES['rst_user_image'])) {
         $uploaded_file = $_FILES['rst_user_image'];
-        $allowed_types = array('image/jpeg', 'image/jpg', 'image/png');
         
-        if (in_array($uploaded_file['type'], $allowed_types)) {
-            require_once(ABSPATH . 'wp-admin/includes/file.php');
-            require_once(ABSPATH . 'wp-admin/includes/image.php');
+        require_once(ABSPATH . 'wp-admin/includes/file.php');
+        require_once(ABSPATH . 'wp-admin/includes/image.php');
+        
+        $uploaded_file['name'] = sanitize_file_name($uploaded_file['name']);
+        $file_type = wp_check_filetype(basename($uploaded_file['name']));
+        $allowed_types = array('jpg', 'jpeg', 'png');
+        
+        if (in_array($file_type['ext'], $allowed_types)) {
             
             $upload = wp_handle_upload($uploaded_file, array('test_form' => false));
             
             if (isset($upload['error'])) {
-                error_log('File upload error: ' . $upload['error']);
                 wp_delete_post($post_id, true);
                 wp_send_json_error(array('message' => $upload['error']));
             }
@@ -609,9 +603,7 @@ function rst_handle_frontend_submission() {
             $attach_data = wp_generate_attachment_metadata($attach_id, $upload['file']);
             wp_update_attachment_metadata($attach_id, $attach_data);
             set_post_thumbnail($post_id, $attach_id);
-            error_log('Saved featured image with attachment ID: ' . $attach_id);
         } else {
-            error_log('Invalid file type: ' . $uploaded_file['type']);
             wp_delete_post($post_id, true);
             $error_msg = rst_user_retrive_messages('rst_file_mishmatch_text', __('Only jpg, png and jpeg is accepted. Please try again.', 'really-simple-testimonials'));
             wp_send_json_error(array('message' => $error_msg));
@@ -623,14 +615,12 @@ function rst_handle_frontend_submission() {
         $provided = intval($_POST['rst_captcha']);
         
         if ($expected !== $provided) {
-            error_log('Captcha validation failed: expected ' . $expected . ', got ' . $provided);
             wp_delete_post($post_id, true);
             $error_msg = rst_user_retrive_messages('rst_calc_error_text', __('Calculation is incorrect. Please try again.', 'really-simple-testimonials'));
             wp_send_json_error(array('message' => $error_msg));
         }
     }
     
-    error_log('Testimonial submitted successfully with post ID: ' . $post_id);
     $success_msg = rst_user_retrive_messages('rst_save_success_text', __('Thank you for your valuable comments. Stay with us.', 'really-simple-testimonials'));
     wp_send_json_success(array('message' => $success_msg));
 }

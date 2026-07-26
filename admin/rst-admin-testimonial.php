@@ -94,9 +94,10 @@ if (!function_exists('rst_testimonial_columns')) {
     function rst_testimonial_columns($columns)
     {
 
+        $allowed_orders = array('asc', 'desc');
         $order = 'asc';
 
-        if (isset($_GET['order']) && $_GET['order'] == 'asc') {
+        if (isset($_GET['order']) && in_array($_GET['order'], $allowed_orders, true) && $_GET['order'] == 'asc') {
             $order = 'desc';
         }
 
@@ -373,7 +374,7 @@ if (!function_exists('rst_testimonials_save_meta_box')) {
     function rst_testimonials_save_meta_box($post_id)
     {
         //check nonce field  and verify it
-        if (!isset($_POST['rst_testimonial_inner_custom_box_nonce']) || !wp_verify_nonce(wp_unslash($_POST['rst_testimonial_inner_custom_box_nonce']), 'rst_testimonial_inner_custom_box')) {
+        if (!isset($_POST['rst_testimonial_inner_custom_box_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['rst_testimonial_inner_custom_box_nonce'])), 'rst_testimonial_inner_custom_box')) {
             return;
         } else {
 
@@ -511,7 +512,7 @@ add_action('save_post', 'rst_single_repeatable_meta_box_save');
 if (!function_exists('rst_single_repeatable_meta_box_save')) {
     function rst_single_repeatable_meta_box_save($post_id)
     {
-        if (!isset($_POST['rst_testimonial_repeaterBox_nonce']) || !wp_verify_nonce(wp_unslash($_POST['rst_testimonial_repeaterBox_nonce']), 'rst_testimonial_repeaterBox')) {
+        if (!isset($_POST['rst_testimonial_repeaterBox_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['rst_testimonial_repeaterBox_nonce'])), 'rst_testimonial_repeaterBox')) {
             return;
         }
 

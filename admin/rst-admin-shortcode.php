@@ -1553,7 +1553,7 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
     function rst_testimonial_meta_box_save_func($post_id)
     {
         #check nonce
-        if (!isset($_POST['rst_short_code_mt_box_nonce']) || !wp_verify_nonce(wp_unslash($_POST['rst_short_code_mt_box_nonce']), 'rst_short_code_mt_box_action')) {
+        if (!isset($_POST['rst_short_code_mt_box_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['rst_short_code_mt_box_nonce'])), 'rst_short_code_mt_box_action')) {
             return;
         }
 
@@ -1666,23 +1666,23 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and saves
         if (isset($_POST['rst_designation_font_style'])) {
-            update_post_meta($post_id, 'rst_designation_font_style', sanitize_text_field($_POST['rst_designation_font_style']));
+            update_post_meta($post_id, 'rst_designation_font_style', sanitize_text_field(wp_unslash($_POST['rst_designation_font_style'])));
         }
 
         #Checks for input and saves
         if (isset($_POST['rst_desig_fontsize_option'])) {
-            update_post_meta($post_id, 'rst_desig_fontsize_option', sanitize_text_field($_POST['rst_desig_fontsize_option']));
+            update_post_meta($post_id, 'rst_desig_fontsize_option', sanitize_text_field(wp_unslash($_POST['rst_desig_fontsize_option'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_content_show_hide'])) {
-            update_post_meta($post_id, 'rst_content_show_hide', sanitize_text_field($_POST['rst_content_show_hide']));
+            update_post_meta($post_id, 'rst_content_show_hide', sanitize_text_field(wp_unslash($_POST['rst_content_show_hide'])));
         }
 
 
         #Checks for input and saves
         if (isset($_POST['rst_content_fontsize_option'])) {
-            update_post_meta($post_id, 'rst_content_fontsize_option', sanitize_text_field($_POST['rst_content_fontsize_option']));
+            update_post_meta($post_id, 'rst_content_fontsize_option', sanitize_text_field(wp_unslash($_POST['rst_content_fontsize_option'])));
         }
 
         #Checks for input and saves
@@ -1692,12 +1692,12 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and saves
         if (isset($_POST['rst_content_padding'])) {
-            update_post_meta($post_id, 'rst_content_padding', sanitize_text_field($_POST['rst_content_padding']));
+            update_post_meta($post_id, 'rst_content_padding', sanitize_text_field(wp_unslash($_POST['rst_content_padding'])));
         }
 
         #Checks for input and saves
         if (isset($_POST['rst_rating_fontsize_option'])) {
-            update_post_meta($post_id, 'rst_rating_fontsize_option', sanitize_text_field($_POST['rst_rating_fontsize_option']));
+            update_post_meta($post_id, 'rst_rating_fontsize_option', sanitize_text_field(wp_unslash($_POST['rst_rating_fontsize_option'])));
         }
 
         #Checks for input and saves
@@ -1707,17 +1707,17 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and saves
         if (isset($_POST['rst_content_border_radius'])) {
-            update_post_meta($post_id, 'rst_content_border_radius', sanitize_text_field($_POST['rst_content_border_radius']));
+            update_post_meta($post_id, 'rst_content_border_radius', sanitize_text_field(wp_unslash($_POST['rst_content_border_radius'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_show_rating_option'])) {
-            update_post_meta($post_id, 'rst_show_rating_option', sanitize_text_field($_POST['rst_show_rating_option']));
+            update_post_meta($post_id, 'rst_show_rating_option', sanitize_text_field(wp_unslash($_POST['rst_show_rating_option'])));
         }
 
         #Checks for input and saves if needed
         if (isset($_POST['rst_show_item_bg_option'])) {
-            update_post_meta($post_id, 'rst_show_item_bg_option', sanitize_text_field($_POST['rst_show_item_bg_option']));
+            update_post_meta($post_id, 'rst_show_item_bg_option', sanitize_text_field(wp_unslash($_POST['rst_show_item_bg_option'])));
         }
 
         #Checks for input and saves
@@ -1731,12 +1731,12 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
         }
         #Checks for input and saves
         if (isset($_POST['rst_item_padding'])) {
-            update_post_meta($post_id, 'rst_item_padding', sanitize_text_field($_POST['rst_item_padding']));
+            update_post_meta($post_id, 'rst_item_padding', sanitize_text_field(wp_unslash($_POST['rst_item_padding'])));
         }
 
         #Checks for input and saves
         if (isset($_POST['rst_item_border_radius'])) {
-            update_post_meta($post_id, 'rst_item_border_radius', sanitize_text_field($_POST['rst_item_border_radius']));
+            update_post_meta($post_id, 'rst_item_border_radius', sanitize_text_field(wp_unslash($_POST['rst_item_border_radius'])));
         }
 
         #Checks for input and saves
@@ -1748,23 +1748,23 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['item_no']) && ($_POST['item_no'] != '')) {
-            update_post_meta($post_id, 'item_no', sanitize_text_field($_POST['item_no']));
+            update_post_meta($post_id, 'item_no', sanitize_text_field(wp_unslash($_POST['item_no'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['loop']) && ($_POST['loop'] != '')) {
-            update_post_meta($post_id, 'loop', sanitize_text_field($_POST['loop']));
+            update_post_meta($post_id, 'loop', sanitize_text_field(wp_unslash($_POST['loop'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['margin'])) {
             //print_r($_POST['margin']);die();
-            update_post_meta($post_id, 'margin', sanitize_text_field($_POST['margin']));
+            update_post_meta($post_id, 'margin', sanitize_text_field(wp_unslash($_POST['margin'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['dots']) && ($_POST['dots'] != '')) {
-            update_post_meta($post_id, 'dots', sanitize_text_field($_POST['dots']));
+            update_post_meta($post_id, 'dots', sanitize_text_field(wp_unslash($_POST['dots'])));
         }
 
         #Checks for input and sanitizes/saves if needed
@@ -1779,32 +1779,32 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['navigation']) && ($_POST['navigation'] != '')) {
-            update_post_meta($post_id, 'navigation', sanitize_text_field($_POST['navigation']));
+            update_post_meta($post_id, 'navigation', sanitize_text_field(wp_unslash($_POST['navigation'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['navigation_align']) && ($_POST['navigation_align'] != '')) {
-            update_post_meta($post_id, 'navigation_align', sanitize_text_field($_POST['navigation_align']));
+            update_post_meta($post_id, 'navigation_align', sanitize_text_field(wp_unslash($_POST['navigation_align'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['navigation_style']) && ($_POST['navigation_style'] != '')) {
-            update_post_meta($post_id, 'navigation_style', sanitize_text_field($_POST['navigation_style']));
+            update_post_meta($post_id, 'navigation_style', sanitize_text_field(wp_unslash($_POST['navigation_style'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['pagination']) && ($_POST['pagination'] != '')) {
-            update_post_meta($post_id, 'pagination', sanitize_text_field($_POST['pagination']));
+            update_post_meta($post_id, 'pagination', sanitize_text_field(wp_unslash($_POST['pagination'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['pagination_align']) && ($_POST['pagination_align'] != '')) {
-            update_post_meta($post_id, 'pagination_align', sanitize_text_field($_POST['pagination_align']));
+            update_post_meta($post_id, 'pagination_align', sanitize_text_field(wp_unslash($_POST['pagination_align'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['pagination_style']) && ($_POST['pagination_style'] != '')) {
-            update_post_meta($post_id, 'pagination_style', sanitize_text_field($_POST['pagination_style']));
+            update_post_meta($post_id, 'pagination_style', sanitize_text_field(wp_unslash($_POST['pagination_style'])));
         }
 
 
@@ -1820,22 +1820,22 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['autoplay']) && ($_POST['autoplay'] != '')) {
-            update_post_meta($post_id, 'autoplay', sanitize_text_field($_POST['autoplay']));
+            update_post_meta($post_id, 'autoplay', sanitize_text_field(wp_unslash($_POST['autoplay'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (!empty($_POST['autoplay_speed'])) {
-            if (strlen($_POST['autoplay_speed']) > 4) {
+            if (strlen(sanitize_text_field(wp_unslash($_POST['autoplay_speed']))) > 4) {
 
             } else {
 
-                if ($_POST['autoplay_speed'] == '' || is_null($_POST['autoplay_speed'])) {
+                if ($_POST['autoplay_speed'] == '' || is_null(sanitize_text_field(wp_unslash($_POST['autoplay_speed'])))) {
 
                     update_post_meta($post_id, 'autoplay_speed', 700);
                 } else {
-                    if (is_numeric($_POST['autoplay_speed']) && strlen($_POST['autoplay_speed']) <= 4) {
+                    if (is_numeric(sanitize_text_field(wp_unslash($_POST['autoplay_speed']))) && strlen(sanitize_text_field(wp_unslash($_POST['autoplay_speed']))) <= 4) {
 
-                        update_post_meta($post_id, 'autoplay_speed', sanitize_text_field($_POST['autoplay_speed']));
+                        update_post_meta($post_id, 'autoplay_speed', sanitize_text_field(wp_unslash($_POST['autoplay_speed'])));
 
                     }
                 }
@@ -1844,27 +1844,27 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['stop_hover']) && ($_POST['stop_hover'] != '')) {
-            update_post_meta($post_id, 'stop_hover', sanitize_text_field($_POST['stop_hover']));
+            update_post_meta($post_id, 'stop_hover', sanitize_text_field(wp_unslash($_POST['stop_hover'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['itemsdesktop']) && ($_POST['itemsdesktop'] != '')) {
-            update_post_meta($post_id, 'itemsdesktop', sanitize_text_field($_POST['itemsdesktop']));
+            update_post_meta($post_id, 'itemsdesktop', sanitize_text_field(wp_unslash($_POST['itemsdesktop'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['itemsdesktopsmall']) && ($_POST['itemsdesktopsmall'] != '')) {
-            update_post_meta($post_id, 'itemsdesktopsmall', sanitize_text_field($_POST['itemsdesktopsmall']));
+            update_post_meta($post_id, 'itemsdesktopsmall', sanitize_text_field(wp_unslash($_POST['itemsdesktopsmall'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['itemsmobile']) && ($_POST['itemsmobile'] != '')) {
-            update_post_meta($post_id, 'itemsmobile', sanitize_text_field($_POST['itemsmobile']));
+            update_post_meta($post_id, 'itemsmobile', sanitize_text_field(wp_unslash($_POST['itemsmobile'])));
         }
 
         #Checks for input and sanitizes/saves if needed
         if (isset($_POST['autoplaytimeout']) && ($_POST['autoplaytimeout'] != '')) {
-            update_post_meta($post_id, 'autoplaytimeout', sanitize_text_field($_POST['autoplaytimeout']));
+            update_post_meta($post_id, 'autoplaytimeout', sanitize_text_field(wp_unslash($_POST['autoplaytimeout'])));
         }
 
         #Checks for input and sanitizes/saves if needed
@@ -1889,14 +1889,14 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
 
         #Value check and saves if needed
         if (isset($_POST['nav_value'])) {
-            update_post_meta($post_id, 'nav_value', sanitize_text_field($_POST['nav_value']));
+            update_post_meta($post_id, 'nav_value', sanitize_text_field(wp_unslash($_POST['nav_value'])));
         } else {
             update_post_meta($post_id, 'nav_value', 1);
         }
         
         #Save active tab
         if (isset($_POST['active_tab'])) {
-            update_post_meta($post_id, 'active_tab', sanitize_text_field($_POST['active_tab']));
+            update_post_meta($post_id, 'active_tab', sanitize_text_field(wp_unslash($_POST['active_tab'])));
         }
 
 
@@ -1914,7 +1914,8 @@ function rst_shortcode_preserve_tab() {
     }
     
     $saved_tab = get_post_meta($post->ID, 'active_tab', true);
-    $url_tab = isset($_GET['active_tab']) ? sanitize_text_field($_GET['active_tab']) : ($saved_tab ? $saved_tab : '1');
+    $allowed_tabs = array('1', '2', '3', '4', '5', '6');
+    $url_tab = isset($_GET['active_tab']) && in_array($_GET['active_tab'], $allowed_tabs, true) ? sanitize_text_field(wp_unslash($_GET['active_tab'])) : ($saved_tab ? $saved_tab : '1');
     
     ?>
     <script type="text/javascript">
