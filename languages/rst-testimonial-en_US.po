@@ -1090,7 +1090,7 @@ msgid "Testimonial Message"
 msgstr ""
 
 #: admin/rst-user-form-options.php:185
-msgid "User's Image/Logo"
+msgid "Image or Logo"
 msgstr ""
 
 #: admin/rst-user-form-options.php:196

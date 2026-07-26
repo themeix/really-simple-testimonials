@@ -249,6 +249,20 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
 
         // nonce field with action
         wp_nonce_field('rst_testimonial_inner_custom_box', 'rst_testimonial_inner_custom_box_nonce');
+        
+        $rst_name = get_post_meta($post->ID, 'rst_designation', true);
+        $rst_position = get_post_meta($post->ID, 'rst_designation', true);
+        $rst_company = get_post_meta($post->ID, 'rst_company_name', true);
+        $rst_company_url = get_post_meta($post->ID, 'rst_company_url', true);
+        $rst_rating = get_post_meta($post->ID, 'rst_rating', true);
+        $rst_testimonial_text = get_post_meta($post->ID, 'rst_designation', true);
+        
+        $saved_name = get_post_meta($post->ID, 'name', true);
+        $saved_position = get_post_meta($post->ID, 'position', true);
+        $saved_company = get_post_meta($post->ID, 'company', true);
+        $saved_company_url = get_post_meta($post->ID, 'company_website', true);
+        $saved_rating = get_post_meta($post->ID, 'company_rating_target', true);
+        $saved_testimonial_text = get_post_meta($post->ID, 'testimonial_text', true);
 
         ?>
 
@@ -256,7 +270,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         <p><label for="title"><strong><?php esc_attr_e('Name:', 'rst-testimonial'); ?></strong></label></p>
 
         <input type="text" name="post_title" id="title" class="regular-text code"
-               value="<?php echo esc_attr(get_post_meta($post->ID, 'name', true)); ?>"/>
+               value="<?php echo esc_attr($saved_name ? $saved_name : $post->post_title); ?>"/>
 
         <hr class="horizontalRuler"/>
 
@@ -264,7 +278,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         <p><label for="position_input"><strong><?php esc_attr_e('Position:', 'rst-testimonial'); ?></strong></label></p>
 
         <input type="text" name="position_input" id="position_input" class="regular-text code"
-               value="<?php echo esc_attr(get_post_meta($post->ID, 'position', true)); ?>"/>
+               value="<?php echo esc_attr($saved_position ? $saved_position : $rst_position); ?>"/>
 
         <hr class="horizontalRuler"/>
 
@@ -272,7 +286,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         <p><label for="company_input"><strong><?php esc_attr_e('Company Name:', 'rst-testimonial'); ?></strong></label></p>
 
         <input type="text" name="company_input" id="company_input" class="regular-text code"
-               value="<?php echo esc_attr(get_post_meta($post->ID, 'company', true)); ?>"/>
+               value="<?php echo esc_attr($saved_company ? $saved_company : $rst_company); ?>"/>
 
         <hr class="horizontalRuler"/>
 
@@ -281,7 +295,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         </p>
 
         <input type="text" name="company_website_input" id="company_website_input" class="regular-text code"
-               value="<?php echo esc_url(get_post_meta($post->ID, 'company_website', true)); ?>"/>
+               value="<?php echo esc_url($saved_company_url ? $saved_company_url : $rst_company_url); ?>"/>
 
         <p><span class="description"><?php esc_attr_e('Example: (www.example.com)', 'rst-testimonial'); ?></span></p>
 
@@ -308,25 +322,25 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
         </p>
 
         <select id="company_rating_target_list" name="company_rating_target_list">
-            <option value="5" <?php if (get_post_meta($post->ID, 'company_rating_target', true) == '5') {
+            <option value="5" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '5') {
                 echo esc_attr('selected');
             } ?> ><?php esc_attr_e('5 Star', 'rst-testimonial'); ?></option>
-            <option value="4.5" <?php if (get_post_meta($post->ID, 'company_rating_target', true) == '4.5') {
+            <option value="4.5" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '4.5') {
                 echo esc_attr('selected');
             } ?> ><?php esc_attr_e('4.5 Star', 'rst-testimonial'); ?></option>
-            <option value="4" <?php if (get_post_meta($post->ID, 'company_rating_target', true) == '4') {
+            <option value="4" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '4') {
                 echo esc_attr('selected');
             } ?> ><?php esc_attr_e('4 Star', 'rst-testimonial'); ?></option>
-            <option value="3.5" <?php if (get_post_meta($post->ID, 'company_rating_target', true) == '3.5') {
+            <option value="3.5" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '3.5') {
                 echo esc_attr('selected');
             } ?> ><?php esc_attr_e('3.5 Star', 'rst-testimonial'); ?></option>
-            <option value="3" <?php if (get_post_meta($post->ID, 'company_rating_target', true) == '3') {
+            <option value="3" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '3') {
                 echo esc_attr('selected');
             } ?> ><?php esc_attr_e('3 Star', 'rst-testimonial'); ?></option>
-            <option value="2" <?php if (get_post_meta($post->ID, 'company_rating_target', true) == '2') {
+            <option value="2" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '2') {
                 echo esc_attr('selected');
             } ?> ><?php esc_attr_e('2 Star', 'rst-testimonial'); ?></option>
-            <option value="1" <?php if (get_post_meta($post->ID, 'company_rating_target', true) == '1') {
+            <option value="1" <?php if (($saved_rating ? $saved_rating : $rst_rating) == '1') {
                 echo esc_attr('selected');
             } ?> ><?php esc_attr_e('1 Star', 'rst-testimonial'); ?></option>
         </select>
@@ -341,7 +355,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
 
         <textarea type="text" name="testimonial_text_input" id="testimonial_text_input" class="regular-text code"
                   rows="5"
-                  cols="100"><?php echo esc_attr(get_post_meta($post->ID, 'testimonial_text', true)); ?></textarea>
+                  cols="100"><?php echo esc_textarea($saved_testimonial_text ? $saved_testimonial_text : $post->post_content); ?></textarea>
 
 
         <?php
@@ -350,7 +364,7 @@ if (!function_exists('rst_testimonials_inner_custom_box')) {
 }
 /*===============================================
     Save testimonial Options Meta Box Function
-=================================================*/
+ =================================================*/
 
 //check if the nonce is set and verify it with action
 

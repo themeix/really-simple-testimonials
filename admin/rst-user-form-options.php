@@ -5,92 +5,85 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Saving Selected fields data in option table
-add_action('admin_init', 'rst_save_user_form_options');
+// AJAX handler for saving user form options
+add_action('wp_ajax_rst_save_user_form_options', 'rst_ajax_save_user_form_options');
 
-function rst_save_user_form_options(){
+function rst_ajax_save_user_form_options() {
+    check_ajax_referer('rst_user_form_action', 'rst_user_form_nonce');
 
-
-    if (isset($_POST['rst_save_btn'])) {
-
-        if(!isset($_POST['rst_user_form_nonce']) || !wp_verify_nonce($_POST['rst_user_form_nonce'], 'rst_user_form_action')) {
-            return;
-        } else {
-
-            if (isset($_POST['rstoptions'])) {
-                update_option('rst_user_fields', array_map('sanitize_text_field', $_POST['rstoptions']));
-            }
-
-
-            if (isset($_POST['rst_user_title'])) {
-                update_option('rst_user_title', sanitize_text_field($_POST['rst_user_title']));
-            }
-
-            if (isset($_POST['rst_user_name'])) {
-                update_option('rst_user_name', sanitize_text_field($_POST['rst_user_name']));
-            }
-
-            if (isset($_POST['rst_user_designation'])) {
-                update_option('rst_user_designation', sanitize_text_field($_POST['rst_user_designation']));
-            }
-
-            if (isset($_POST['rst_user_company_name'])) {
-                update_option('rst_user_company_name', sanitize_text_field($_POST['rst_user_company_name']));
-            }
-
-
-            if (isset($_POST['rst_user_company_url'])) {
-                update_option('rst_user_company_url', sanitize_text_field($_POST['rst_user_company_url']));
-            }
-
-            if (isset($_POST['rst_user_rating'])) {
-                update_option('rst_user_rating', sanitize_text_field($_POST['rst_user_rating']));
-            }
-
-            if (isset($_POST['rst_user_testi_text'])) {
-                update_option('rst_user_testi_text', sanitize_text_field($_POST['rst_user_testi_text']));
-            }
-
-            if (isset($_POST['rst_user_categories'])) {
-                update_option('rst_user_categories', sanitize_text_field($_POST['rst_user_categories']));
-            }
-
-
-            if (isset($_POST['rst_user_logo_img'])) {
-                update_option('rst_user_logo_img', sanitize_text_field($_POST['rst_user_logo_img']));
-            }
-
-            if (isset($_POST['rst_user_calculate'])) {
-                update_option('rst_user_calculate', sanitize_text_field($_POST['rst_user_calculate']));
-            }
-
-            if (isset($_POST['rst_post_status'])) {
-                update_option('rst_post_status', sanitize_text_field($_POST['rst_post_status']));
-            }
-
-            if (isset($_POST['rst_user_submit_btn_text'])) {
-                update_option('rst_user_submit_btn_text', sanitize_text_field($_POST['rst_user_submit_btn_text']));
-            }
-
-            if (isset($_POST['rst_save_success_text'])) {
-                update_option('rst_save_success_text', sanitize_text_field($_POST['rst_save_success_text']));
-            }
-
-            if (isset($_POST['rst_save_error_text'])) {
-                update_option('rst_save_error_text', sanitize_text_field($_POST['rst_save_error_text']));
-            }
-
-            if (isset($_POST['rst_file_mishmatch_text'])) {
-                update_option('rst_file_mishmatch_text', sanitize_text_field($_POST['rst_file_mishmatch_text']));
-            }
-
-            if (isset($_POST['rst_calc_error_text'])) {
-                update_option('rst_calc_error_text', sanitize_text_field($_POST['rst_calc_error_text']));
-            }
-        }
-
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => 'Permission denied'));
     }
 
+    if (isset($_POST['rstoptions'])) {
+        update_option('rst_user_fields', array_map('sanitize_text_field', $_POST['rstoptions']));
+    }
+
+    if (isset($_POST['rst_user_title'])) {
+        update_option('rst_user_title', sanitize_text_field($_POST['rst_user_title']));
+    }
+
+    if (isset($_POST['rst_user_name'])) {
+        update_option('rst_user_name', sanitize_text_field($_POST['rst_user_name']));
+    }
+
+    if (isset($_POST['rst_user_designation'])) {
+        update_option('rst_user_designation', sanitize_text_field($_POST['rst_user_designation']));
+    }
+
+    if (isset($_POST['rst_user_company_name'])) {
+        update_option('rst_user_company_name', sanitize_text_field($_POST['rst_user_company_name']));
+    }
+
+    if (isset($_POST['rst_user_company_url'])) {
+        update_option('rst_user_company_url', sanitize_text_field($_POST['rst_user_company_url']));
+    }
+
+    if (isset($_POST['rst_user_rating'])) {
+        update_option('rst_user_rating', sanitize_text_field($_POST['rst_user_rating']));
+    }
+
+    if (isset($_POST['rst_user_testi_text'])) {
+        update_option('rst_user_testi_text', sanitize_text_field($_POST['rst_user_testi_text']));
+    }
+
+    if (isset($_POST['rst_user_categories'])) {
+        update_option('rst_user_categories', sanitize_text_field($_POST['rst_user_categories']));
+    }
+
+    if (isset($_POST['rst_user_logo_img'])) {
+        update_option('rst_user_logo_img', sanitize_text_field($_POST['rst_user_logo_img']));
+    }
+
+    if (isset($_POST['rst_user_calculate'])) {
+        update_option('rst_user_calculate', sanitize_text_field($_POST['rst_user_calculate']));
+    }
+
+    if (isset($_POST['rst_post_status'])) {
+        update_option('rst_post_status', sanitize_text_field($_POST['rst_post_status']));
+    }
+
+    if (isset($_POST['rst_user_submit_btn_text'])) {
+        update_option('rst_user_submit_btn_text', sanitize_text_field($_POST['rst_user_submit_btn_text']));
+    }
+
+    if (isset($_POST['rst_save_success_text'])) {
+        update_option('rst_save_success_text', sanitize_textarea_field($_POST['rst_save_success_text']));
+    }
+
+    if (isset($_POST['rst_save_error_text'])) {
+        update_option('rst_save_error_text', sanitize_textarea_field($_POST['rst_save_error_text']));
+    }
+
+    if (isset($_POST['rst_file_mishmatch_text'])) {
+        update_option('rst_file_mishmatch_text', sanitize_textarea_field($_POST['rst_file_mishmatch_text']));
+    }
+
+    if (isset($_POST['rst_calc_error_text'])) {
+        update_option('rst_calc_error_text', sanitize_textarea_field($_POST['rst_calc_error_text']));
+    }
+
+    wp_send_json_success(array('message' => 'Settings saved successfully.'));
 }
 
 
@@ -136,12 +129,22 @@ function rst_register_testimonial_user_options()
 
 add_action('admin_menu', 'rst_register_testimonial_user_options');
 
+add_action('admin_enqueue_scripts', 'rst_enqueue_user_form_scripts');
 
-// Callback function for admin_menu hook
+function rst_enqueue_user_form_scripts($hook) {
+    if ($hook !== 'rst_testimonial_page_rst-user-form-options') {
+        return;
+    }
+    wp_enqueue_script('jquery');
+    wp_localize_script('jquery', 'rst_admin_ajax', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('rst_user_form_action')
+    ));
+}
+
 function rst_testimonial_user_options_page_layouts()
 {
     $rst_post_status = get_option('rst_post_status');
-
     ?>
     <div class="wrap">
         <h1><?php esc_attr_e('Testimonial Submission Form :', 'rst-testimonial'); ?></h1>
@@ -155,7 +158,8 @@ function rst_testimonial_user_options_page_layouts()
         </p>
 
         <h3 style="color:red;"><?php esc_attr_e('Available Only Premium Version:', 'rst-testimonial'); ?></h3>
-        <form method="post" action="">
+        <div id="rst-form-notice" style="display:none;"></div>
+        <form method="post" action="" id="rst-user-form">
             <?php wp_nonce_field('rst_user_form_action', 'rst_user_form_nonce'); ?>
 
             <table>
@@ -249,12 +253,12 @@ function rst_testimonial_user_options_page_layouts()
                 <tr>
                     <td>
                         <input id="rst_user_logo_img" type="checkbox" name="rstoptions[]"
-                               value="User's Image/Logo" <?php rst_isOptionChecked("User's Image/Logo"); ?>>
-                        <label for="rst_user_logo_img"><?php esc_attr_e('User\'s Image/Logo', 'rst-testimonial'); ?></label>
+                               value="Image or Logo" <?php rst_isOptionChecked("Image or Logo"); ?>>
+                        <label for="rst_user_logo_img"><?php esc_attr_e('Image or Logo', 'rst-testimonial'); ?></label>
                     </td>
                     <td>
                         <input type="text" name="rst_user_logo_img"
-                               value="<?php rst_user_fields_name('rst_user_logo_img', "User's Image/Logo"); ?>">
+                               value="<?php rst_user_fields_name('rst_user_logo_img', "Image or Logo"); ?>">
                     </td>
                 </tr>
                 <tr>
@@ -336,20 +340,297 @@ function rst_testimonial_user_options_page_layouts()
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" class="button button-primary" name="rst_save_btn" value="Save Changes">
+                        <input type="submit" class="button button-primary rst-admin-submit-btn" name="rst_save_btn" value="Save Changes">
+                        <span class="rst-spinner rst-admin-spinner" style="display:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                            </svg>
+                        </span>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
+    
+    <style>
+    .rst-spinner {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+
+    .rst-spinner svg {
+        animation: rst-spin 1s linear infinite;
+    }
+
+    @keyframes rst-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    #rst-form-notice {
+        margin: 20px 0;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        font-size: 15px;
+        line-height: 1.5;
+        max-width: 600px;
+    }
+
+    #rst-form-notice.success {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        border-left: 5px solid #48bb78;
+    }
+
+    #rst-form-notice.error {
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        color: #fff;
+        border-left: 5px solid #f56565;
+    }
+
+    #rst-form-notice p {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .rst-animation-fade-in {
+        animation: rst-fadeIn 0.5s ease-out;
+    }
+
+    @keyframes rst-fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    </style>
+    
+    <script type="text/javascript">
+jQuery(document).ready(function($) {
+    $('#rst-user-form').on('submit', function(e) {
+        e.preventDefault();
+        
+        var form = $(this);
+        var submitBtn = form.find('input[type="submit"]');
+        var spinner = $('.rst-admin-spinner');
+        var messageDiv = $('#rst-form-notice');
+        var formData = new FormData(this);
+        var originalBtnText = submitBtn.val();
+        
+        submitBtn.prop('disabled', true).val('Saving...').css('opacity', '0.7');
+        spinner.fadeIn();
+        messageDiv.hide().removeClass('rst-animation-fade-in');
+        
+        formData.append('action', 'rst_save_user_form_options');
+        
+        $.ajax({
+            url: rst_admin_ajax.ajax_url,
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                submitBtn.prop('disabled', false).val(originalBtnText).css('opacity', '1');
+                spinner.fadeOut();
+                
+                if (response.success) {
+                    messageDiv.removeClass('error notice-error').addClass('success rst-animation-fade-in').html('<p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><polyline points="20 6 9 17 4 12"></polyline></svg>' + response.data.message + '</p>').fadeIn(300);
+                } else {
+                    messageDiv.removeClass('success notice-success').addClass('error rst-animation-fade-in').html('<p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>' + response.data.message + '</p>').fadeIn(300);
+                }
+                
+                setTimeout(function() {
+                    messageDiv.fadeOut(500);
+                }, 3000);
+            },
+            error: function(xhr, status, error) {
+                submitBtn.prop('disabled', false).val(originalBtnText).css('opacity', '1');
+                spinner.fadeOut();
+                
+                messageDiv.removeClass('success notice-success').addClass('error rst-animation-fade-in').html('<p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>Error saving settings: ' + error + '</p>').fadeIn(300);
+                
+                setTimeout(function() {
+                    messageDiv.fadeOut(500);
+                }, 3000);
+            }
+        });
+    });
+});
+    </script>
 <?php }
 
+
+add_action('wp_enqueue_scripts', 'rst_enqueue_frontend_scripts');
+
+function rst_enqueue_frontend_scripts() {
+    global $post;
+    
+    if (!is_a($post, 'WP_Post')) {
+        return;
+    }
+    
+    if (has_shortcode($post->post_content, 'rst_frontend_form')) {
+        wp_enqueue_script('jquery');
+        wp_register_script('rst-frontend-form', false, array('jquery'), time(), true);
+        wp_enqueue_script('rst-frontend-form');
+        wp_localize_script('rst-frontend-form', 'rst_frontend_ajax', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'submit_text' => get_option('rst_user_submit_btn_text', 'Submit Testimonial'),
+        ));
+    }
+}
 
 function rst_frontend_form_callback()
 {
     ob_start();
-    include (__DIR__ . '/rst-frontend-form.php');
+    include (__DIR__) . '/rst-frontend-form.php';
     return ob_get_clean();
 }
 
 add_shortcode('rst_frontend_form', 'rst_frontend_form_callback');
+
+add_action('wp_ajax_rst_handle_frontend_submission', 'rst_handle_frontend_submission');
+add_action('wp_ajax_nopriv_rst_handle_frontend_submission', 'rst_handle_frontend_submission');
+
+function rst_handle_frontend_submission() {
+    check_ajax_referer('rst_frontend_submit_action', 'rst_frontend_nonce');
+    
+    error_log('POST data received: ' . print_r($_POST, true));
+    error_log('FILES data received: ' . print_r($_FILES, true));
+    
+    $post_status = get_option('rst_post_status', 'draft');
+    $selected_fields = get_option('rst_user_fields', array());
+    
+    $post_title = isset($_POST['rst_name']) ? sanitize_text_field($_POST['rst_name']) : '';
+    
+    if (in_array('Title', $selected_fields) && isset($_POST['rst_title'])) {
+        $post_title = sanitize_text_field($_POST['rst_title']);
+    }
+    
+    if (empty($post_title)) {
+        $post_title = 'Untitled Testimonial';
+    }
+    
+    $post_content = isset($_POST['rst_testimonial']) ? sanitize_textarea_field($_POST['rst_testimonial']) : '';
+    
+    $post_data = array(
+        'post_title'    => $post_title,
+        'post_content'  => $post_content,
+        'post_status'   => $post_status,
+        'post_type'     => 'rst_testimonial',
+    );
+    
+    $post_id = wp_insert_post($post_data);
+    
+    if (is_wp_error($post_id)) {
+        error_log('Post creation error: ' . $post_id->get_error_message());
+        wp_send_json_error(array('message' => $post_id->get_error_message()));
+    }
+    
+    error_log('Post created with ID: ' . $post_id);
+    
+    if (!empty($_POST['rst_name'])) {
+        update_post_meta($post_id, 'name', sanitize_text_field($_POST['rst_name']));
+        error_log('Saved name: ' . sanitize_text_field($_POST['rst_name']));
+    }
+    
+    if (!empty($_POST['rst_designation'])) {
+        update_post_meta($post_id, 'position', sanitize_text_field($_POST['rst_designation']));
+        update_post_meta($post_id, 'rst_designation', sanitize_text_field($_POST['rst_designation']));
+        error_log('Saved designation: ' . sanitize_text_field($_POST['rst_designation']));
+    }
+    
+    if (!empty($_POST['rst_company_name'])) {
+        update_post_meta($post_id, 'company', sanitize_text_field($_POST['rst_company_name']));
+        update_post_meta($post_id, 'rst_company_name', sanitize_text_field($_POST['rst_company_name']));
+        error_log('Saved company name: ' . sanitize_text_field($_POST['rst_company_name']));
+    }
+    
+    if (!empty($_POST['rst_company_url'])) {
+        update_post_meta($post_id, 'company_website', esc_url_raw($_POST['rst_company_url']));
+        update_post_meta($post_id, 'rst_company_url', esc_url_raw($_POST['rst_company_url']));
+        error_log('Saved company URL: ' . esc_url_raw($_POST['rst_company_url']));
+    }
+    
+    if (!empty($_POST['rst_rating'])) {
+        update_post_meta($post_id, 'company_rating_target', sanitize_text_field($_POST['rst_rating']));
+        update_post_meta($post_id, 'rst_rating', sanitize_text_field($_POST['rst_rating']));
+        error_log('Saved rating: ' . sanitize_text_field($_POST['rst_rating']));
+    }
+    
+    if (!empty($post_content)) {
+        update_post_meta($post_id, 'testimonial_text', $post_content);
+        error_log('Saved testimonial text');
+    }
+    
+    if (!empty($_POST['rst_categories']) && is_array($_POST['rst_categories'])) {
+        $category_ids = array_map('intval', $_POST['rst_categories']);
+        $category_ids = array_filter($category_ids);
+        if (!empty($category_ids)) {
+            wp_set_object_terms($post_id, $category_ids, 'rst_testimonial_category');
+            error_log('Saved categories: ' . implode(',', $category_ids));
+        }
+    }
+    
+    if (!empty($_FILES['rst_user_image'])) {
+        $uploaded_file = $_FILES['rst_user_image'];
+        $allowed_types = array('image/jpeg', 'image/jpg', 'image/png');
+        
+        if (in_array($uploaded_file['type'], $allowed_types)) {
+            require_once(ABSPATH . 'wp-admin/includes/file.php');
+            require_once(ABSPATH . 'wp-admin/includes/image.php');
+            
+            $upload = wp_handle_upload($uploaded_file, array('test_form' => false));
+            
+            if (isset($upload['error'])) {
+                error_log('File upload error: ' . $upload['error']);
+                wp_delete_post($post_id, true);
+                wp_send_json_error(array('message' => $upload['error']));
+            }
+            
+            $attachment = array(
+                'post_mime_type' => $upload['type'],
+                'post_title'     => basename($upload['file']),
+                'post_content'   => '',
+                'post_status'    => 'inherit'
+            );
+            
+            $attach_id = wp_insert_attachment($attachment, $upload['file'], $post_id);
+            $attach_data = wp_generate_attachment_metadata($attach_id, $upload['file']);
+            wp_update_attachment_metadata($attach_id, $attach_data);
+            set_post_thumbnail($post_id, $attach_id);
+            error_log('Saved featured image with attachment ID: ' . $attach_id);
+        } else {
+            error_log('Invalid file type: ' . $uploaded_file['type']);
+            wp_delete_post($post_id, true);
+            $error_msg = rst_user_retrive_messages('rst_file_mishmatch_text', __('Only jpg, png and jpeg is accepted. Please try again.', 'rst-testimonial'));
+            wp_send_json_error(array('message' => $error_msg));
+        }
+    }
+    
+    if (isset($_POST['rst_captcha_sum']) && isset($_POST['rst_captcha'])) {
+        $expected = intval($_POST['rst_captcha_sum']);
+        $provided = intval($_POST['rst_captcha']);
+        
+        if ($expected !== $provided) {
+            error_log('Captcha validation failed: expected ' . $expected . ', got ' . $provided);
+            wp_delete_post($post_id, true);
+            $error_msg = rst_user_retrive_messages('rst_calc_error_text', __('Calculation is incorrect. Please try again.', 'rst-testimonial'));
+            wp_send_json_error(array('message' => $error_msg));
+        }
+    }
+    
+    error_log('Testimonial submitted successfully with post ID: ' . $post_id);
+    $success_msg = rst_user_retrive_messages('rst_save_success_text', __('Thank you for your valuable comments. Stay with us.', 'rst-testimonial'));
+    wp_send_json_success(array('message' => $success_msg));
+}

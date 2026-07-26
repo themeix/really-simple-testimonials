@@ -1893,11 +1893,80 @@ if(!function_exists('rst_testimonial_meta_box_save_func')) {
         } else {
             update_post_meta($post_id, 'nav_value', 1);
         }
+        
+        #Save active tab
+        if (isset($_POST['active_tab'])) {
+            update_post_meta($post_id, 'active_tab', sanitize_text_field($_POST['active_tab']));
+        }
 
 
     }
 }
 add_action('save_post', 'rst_testimonial_meta_box_save_func');
+
+add_action('admin_head-post.php', 'rst_shortcode_preserve_tab');
+add_action('admin_head-post-new.php', 'rst_shortcode_preserve_tab');
+
+function rst_shortcode_preserve_tab() {
+    global $post_type, $post;
+    if ($post_type !== 'rst_shortcode') {
+        return;
+    }
+    
+    $saved_tab = get_post_meta($post->ID, 'active_tab', true);
+    $url_tab = isset($_GET['active_tab']) ? sanitize_text_field($_GET['active_tab']) : ($saved_tab ? $saved_tab : '1');
+    
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        var initialTab = '<?php echo esc_js($url_tab); ?>';
+        var currentTab = initialTab;
+        
+        function switchToTab(tabNumber) {
+            currentTab = tabNumber;
+            $('.tab-nav li').removeClass('active');
+            $('.nav' + tabNumber).addClass('active');
+            $('.box li.tab-box').removeClass('d-block');
+            $('.box' + tabNumber).addClass('d-block');
+            $('#nav_value').val(tabNumber);
+            $('#active_tab_field').val(tabNumber);
+            localStorage.setItem('rst_shortcode_active_tab', tabNumber);
+            
+            // Update URL without reloading
+            var url = new URL(window.location.href);
+            url.searchParams.set('active_tab', tabNumber);
+            window.history.replaceState({}, '', url);
+        }
+        
+        // Add hidden field to track active tab
+        if ($('#active_tab_field').length === 0) {
+            $('#post').append('<input type="hidden" id="active_tab_field" name="active_tab" value="' + initialTab + '">');
+        }
+        
+        switchToTab(initialTab);
+        
+        $(document).on('click', '.tab-nav li', function() {
+            var tabNumber = $(this).attr('nav');
+            switchToTab(tabNumber);
+        });
+        
+        // Update form submission to include current tab
+        $('#post').on('submit', function() {
+            if ($('#active_tab_field').length === 0) {
+                $(this).append('<input type="hidden" id="active_tab_field" name="active_tab" value="' + currentTab + '">');
+            } else {
+                $('#active_tab_field').val(currentTab);
+            }
+        });
+        
+        // Clear localStorage when leaving the page
+        $(window).on('beforeunload', function() {
+            localStorage.removeItem('rst_shortcode_active_tab');
+        });
+    });
+    </script>
+    <?php
+}
 # Custom metabox field end
 
 
