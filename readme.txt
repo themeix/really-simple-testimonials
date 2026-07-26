@@ -8,7 +8,7 @@ Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-A powerful and developer-friendly WordPress testimonial plugin for creating stunning testimonial sliders, grids, and carousels with customer reviews and client feedback.
+A powerful and developer-friendly WordPress testimonial plugin for creating stunning testimonial sliders, grids, and carousels.
 
 == Description ==
 
