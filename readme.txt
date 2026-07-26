@@ -1,6 +1,6 @@
 === Really Simple Testimonials ===
 Contributors: themeix
-Tags: testimonials, testimonial slider,  customer reviews, client feedback, testimonial carousel
+Tags: testimonials, testimonial slider, customer reviews, client feedback, testimonial carousel
 Requires at least: 6.0
 Requires PHP: 8.3
 Tested up to: 7.0
@@ -12,14 +12,14 @@ A powerful and developer-friendly WordPress testimonial plugin for creating stun
 
 == Description ==
 
-**Really Simple Testimonials** is the ultimate WordPress testimonial plugin for displaying customer reviews and client feedback on your website. Perfect for businesses, agencies, and websites looking to showcase customer testimonials with beautiful slider and grid layouts.
+**Really Simple Testimonials** is a WordPress testimonial plugin for displaying customer reviews and client feedback on your website. Perfect for businesses, agencies, and websites looking to showcase testimonials with beautiful slider and grid layouts.
 
 == Key Features ==
 
 *   **Multiple Testimonial Layouts**: Choose from 5 premium-quality themes including slider and grid options
-*   **Responsive Design**: Fully responsive testimonials that look perfect on all devices - desktop, tablet, and mobile
+*   **Responsive Design**: Fully responsive testimonials that look perfect on all devices — desktop, tablet, and mobile
 *   **Frontend Testimonial Submission**: Allow customers to submit testimonials directly from the frontend with customizable form fields
-*   **Star Ratings Support**: Display customer ratings with beautiful star icons and customize rating colors
+*   **Star Ratings Support**: Display customer ratings with beautiful star icons and customizable colors
 *   **Advanced Slider Controls**: Control autoplay speed, navigation arrows, pagination, and infinite loop
 *   **Customizable Design**: Customize fonts, colors, borders, spacing, and alignment to match your brand
 *   **Social Media Integration**: Add social media links to testimonial profiles for enhanced credibility
@@ -30,11 +30,11 @@ A powerful and developer-friendly WordPress testimonial plugin for creating stun
 *   **Testimonial Management**: Full control over testimonial content, company information, and design
 *   **Translation Ready**: Compatible with WordPress translation plugins for multilingual sites
 
-== Why Choose Really Simple Testimonials Plugin? ==
+== Why Choose Really Simple Testimonials? ==
 
-Looking for the **best testimonial plugin** for WordPress? Really Simple Testimonials offers everything you need to display **customer reviews** and **client feedback** professionally. Our **testimonial slider** and **testimonial carousel** features let you create engaging testimonial showcases that build trust and credibility.
+If you're looking for a reliable way to display customer reviews and client feedback, Really Simple Testimonials gives you a full-featured testimonial slider and carousel builder without the premium price tag.
 
-Whether you need a simple **testimonial grid** or an advanced **testimonial slider with navigation**, this free testimonial plugin delivers premium features without the cost. Perfect for agencies, businesses, and developers who want a reliable **WordPress testimonial plugin** that's easy to use yet powerful enough for custom implementations.
+Whether you need a simple grid layout or an advanced slider with custom navigation, this plugin is built for agencies, businesses, and developers who want something easy to use but flexible enough for custom implementations.
 
 == Installation ==
 
@@ -103,10 +103,6 @@ Yes, our testimonial plugin supports star ratings with customizable colors and s
 
 Yes, the plugin is translation ready and compatible with popular WordPress translation plugins like WPML and Polylang.
 
-= Does this testimonial plugin support multiple languages? =
-
-Yes, you can translate the plugin into any language using standard WordPress translation methods.
-
 = Can I add social media links to testimonials? =
 
 Yes, you can add social media links to testimonial profiles including Facebook, Twitter, LinkedIn, and Instagram.
@@ -115,7 +111,6 @@ Yes, you can add social media links to testimonial profiles including Facebook, 
 
 = 1.2.0 =
 *   Fix PHP errors
- 
 
 = 1.1.0 =
 *   Added frontend testimonial submission with AJAX form processing
@@ -144,7 +139,7 @@ Version 1.1.0 includes major improvements to the frontend testimonial submission
 
 == Credits ==
 
-Developed by Themeix with over 4 years of continuous improvements based on user feedback and WordPress best practices.
+Developed by Themeix, with ongoing improvements based on user feedback and WordPress best practices.
 
 == Reviews ==
 

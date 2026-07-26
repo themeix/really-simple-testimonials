@@ -1,19 +1,18 @@
 <?php
 /**
-Plugin Name: Really Simple Testimonials
-Version: 1.2.0
-Plugin URI: https://diviflow.com/
-Author: themeix
-Author URI: https://diviflow.com
-Description: A Testimonial Plugin for WordPress.
-Text Domain: really-simple-testimonials
-Domain Path: /languages
-Requires: 4.6 or higher
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Requires PHP: 8.3
-*/
-
+ * Plugin Name: Really Simple Testimonials – Testimonial Slider, Carousel & Reviews Plugin
+ * Version: 1.2.0
+ * Plugin URI: https://diviflow.com/
+ * Author: Themeix
+ * Author URI: https://diviflow.com
+ * Description: Add beautiful, responsive testimonial sliders and review carousels to any WordPress site in minutes. Includes ratings, social links, multiple layouts, and full customization — no coding required.
+ * Text Domain: really-simple-testimonials
+ * Domain Path: /languages
+ * Requires: 4.6 or higher
+ * License: GPLv3 or later
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Requires PHP: 8.3
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( "Can't load this file directly" );
