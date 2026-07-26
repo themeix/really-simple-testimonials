@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Really Simple Testimonials – Testimonial Slider, Carousel & Reviews Plugin
+ * Plugin Name: Really Simple Testimonials – Testimonial Slider, Carousel & Reviews
  * Version: 1.2.0
  * Plugin URI: https://diviflow.com/
  * Author: Themeix

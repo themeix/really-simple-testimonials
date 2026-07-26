@@ -1,4 +1,4 @@
-=== Really Simple Testimonials ===
+=== Really Simple Testimonials – Testimonial Slider, Carousel & Reviews ===
 Contributors: themeix
 Tags: testimonials, testimonial slider, customer reviews, client feedback, testimonial carousel
 Requires at least: 6.0
