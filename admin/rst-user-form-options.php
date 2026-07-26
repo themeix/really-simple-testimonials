@@ -574,7 +574,7 @@ function rst_handle_frontend_submission() {
     }
     
     if (!empty($_FILES['rst_user_image'])) {
-        $uploaded_file = $_FILES['rst_user_image'];
+        $uploaded_file = wp_unslash($_FILES['rst_user_image']);
         
         require_once(ABSPATH . 'wp-admin/includes/file.php');
         require_once(ABSPATH . 'wp-admin/includes/image.php');
