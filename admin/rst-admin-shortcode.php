@@ -492,7 +492,7 @@ if (!function_exists('rst_testimonials_display_post_type_func')) {
                                                value="<?php if ($rst_name_fontsize_option != '') {
                                                    echo esc_attr($rst_name_fontsize_option);
                                                } else {
-                                                   echo esc_attr('20');
+                                                   echo esc_attr('16');
                                                } ?>"> <br/>
                                         <span class="rststestimonial_manager_hint"><?php echo esc_attr__('Choose a font size for testimonial name.', 'rst-testimonial'); ?></span>
                                     </td>

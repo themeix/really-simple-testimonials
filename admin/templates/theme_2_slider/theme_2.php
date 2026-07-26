@@ -77,6 +77,32 @@ if ($rst_testimonial_themes == '2') {
             }
 
             if ($navigation == 'true'){ ?>
+            .rst_<?php echo esc_attr( $postid );?> .slider-arrows {
+                display: flex;
+                gap: 12px;
+                margin-top: 28px;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .slider-arrows button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 46px;
+                height: 46px;
+                border-radius: 999px;
+                box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 18px -8px rgba(15, 23, 42, 0.18);
+                transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .slider-arrows button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(15, 23, 42, 0.06), 0 14px 26px -10px rgba(15, 23, 42, 0.26);
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .slider-arrows button:active {
+                transform: translateY(0);
+            }
+
             .rst_<?php echo esc_attr( $postid );?> .slider-arrows .rst-slider-prev {
                 background-color: <?php echo esc_attr($rst_nav_bg_color);?> !important;
 
@@ -100,12 +126,28 @@ if ($rst_testimonial_themes == '2') {
             }
 
             if($rst_dots == 'true'){ ?>
+            .rst_<?php echo esc_attr( $postid );?> .slick-dots {
+                display: flex !important;
+                align-items: center;
+                gap: 8px;
+                margin-top: 8px;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .slick-dots li {
+                margin: 0 !important;
+            }
+
             .rst_<?php echo esc_attr( $postid );?> .slick-dots button {
                 background-color: <?php echo esc_attr($rst_dots_inactive_color);?> !important;
+                width: 8px !important;
+                height: 8px !important;
+                border-radius: 999px !important;
+                transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease;
             }
 
             .rst_<?php echo esc_attr( $postid );?> .slick-active button {
                 background-color: <?php echo esc_attr($rst_dots_active_color);?> !important;
+                width: 22px !important;
             }
 
             <?php
@@ -121,6 +163,14 @@ if ($rst_testimonial_themes == '2') {
             ?>
 
 
+            .rst_<?php echo esc_attr( $postid );?> .rst-slider {
+                margin: 0 -14px;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst-slider .slick-slide > div {
+                margin: 10px 14px 26px;
+            }
+
             .rst_<?php echo esc_attr( $postid );?> .rst_slider_item_thm_2 {
                 border-width: 1px;
                 --tw-border-opacity: 1;
@@ -130,8 +180,32 @@ if ($rst_testimonial_themes == '2') {
                 border-color: rgba(229, 231, 235, var(--tw-border-opacity));
             <?php }?>
                 border-radius: <?php echo esc_attr($rst_item_border_radius);?>px!important;
-                padding: 40px!important;
+                padding: 44px 40px!important;
                 position: relative;
+                overflow: hidden;
+                box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 28px -12px rgba(15, 23, 42, 0.10);
+                transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_slider_item_thm_2:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06), 0 24px 48px -16px rgba(15, 23, 42, 0.16);
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_slider_item_thm_2::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, <?php echo esc_attr($rst_rating_color); ?>, transparent 85%);
+                opacity: 0;
+                transition: opacity 0.35s ease;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_slider_item_thm_2:hover::before {
+                opacity: 1;
             }
 
             .rst_<?php echo esc_attr( $postid );?> .rst_content {
@@ -173,8 +247,55 @@ if ($rst_testimonial_themes == '2') {
                 border-radius: <?php echo esc_attr($rst_img_border_radius); ?> !important;
                 border-width: <?php echo esc_attr($rst_imgborder_width_option); ?>px !important;
                 border-color: <?php echo esc_attr($rst_imgborder_color_option); ?> !important;
+                box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.9), 0 2px 10px rgba(15, 23, 42, 0.12);
+                object-fit: cover;
                 cursor: pointer;
                 margin-top: 8px !important;
+                transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_slider_item_thm_2:hover .rst_author_image {
+                transform: scale(1.05);
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_author_zone {
+                padding-top: 2px;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_author_name {
+                letter-spacing: -0.01em;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_author_position {
+                letter-spacing: 0.02em;
+                opacity: 0.85;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rs-author-box {
+                position: relative;
+                padding-bottom: 22px;
+                margin-bottom: 22px !important;
+                border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst-description {
+                line-height: 1.75 !important;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_author_soc_link_2 a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 999px;
+                background-color: rgba(148, 163, 184, 0.08);
+                transition: background-color 0.25s ease, transform 0.25s ease;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst_author_soc_link_2 a:hover {
+                background-color: rgba(148, 163, 184, 0.16);
+                transform: translateY(-2px);
             }
 
             .rst_<?php echo esc_attr( $postid );?> .rst_rating svg {
@@ -215,7 +336,7 @@ if ($rst_testimonial_themes == '2') {
                             <div class="flex-col mr-4">
                                 <div class="rst-author-images">
                                     <?php if(!empty($rst_author_image2)){ ?>
-                                    <img class="h-25 w-25 rounded-full border border-red-500 rst_author_image" src="<?php echo esc_url($rst_author_image2[0]); ?>"
+                                    <img class="h-25 w-25 rounded-full rst_author_image" src="<?php echo esc_url($rst_author_image2[0]); ?>"
                                          alt="author">
                                     <?php } ?>
                                 </div>
@@ -274,12 +395,12 @@ if ($rst_testimonial_themes == '2') {
 
                         </div>
                         <div class="rst-author-text relative">
-                            <div class="quotes absolute w-full h-full z-1">
-                                <svg class="m-auto" width="143" height="131" viewBox="0 0 143 131" fill="none"
+                            <div class="quotes mb-1" style="opacity: 0.55;">
+                                <svg width="34" height="31" viewBox="0 0 143 131" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.3"
+                                    <path
                                           d="M12.0894 19.3915C22.0797 7.105 37.1968 0.876953 57.0136 0.876953H64.1342V23.6485L58.4092 24.949C48.6539 27.1624 41.868 31.5164 38.2364 37.906C36.3416 41.3482 35.2669 45.2895 35.1176 49.3442H57.0136C58.9021 49.3442 60.7132 50.1953 62.0486 51.7102C63.384 53.2251 64.1342 55.2797 64.1342 57.4221V113.967C64.1342 122.877 57.747 130.123 49.8929 130.123H7.16908C5.28056 130.123 3.4694 129.272 2.13402 127.757C0.798643 126.242 0.0484355 124.188 0.0484355 122.045V81.6558L0.0697976 58.0764C0.00571182 57.1798 -1.34721 35.935 12.0894 19.3915ZM128.22 130.123H85.4961C83.6076 130.123 81.7964 129.272 80.4611 127.757C79.1257 126.242 78.3755 124.188 78.3755 122.045V81.6558L78.3968 58.0764C78.3328 57.1798 76.9798 35.935 90.4165 19.3915C100.407 7.105 115.524 0.876953 135.341 0.876953H142.461V23.6485L136.736 24.949C126.981 27.1624 120.195 31.5164 116.563 37.906C114.669 41.3482 113.594 45.2895 113.445 49.3442H135.341C137.229 49.3442 139.04 50.1953 140.376 51.7102C141.711 53.2251 142.461 55.2797 142.461 57.4221V113.967C142.461 122.877 136.074 130.123 128.22 130.123Z"
-                                          fill="#D4D4D8" />
+                                          fill="<?php echo esc_attr($rst_rating_color); ?>" />
                                 </svg>
                             </div>
                             <p class=" text-coolGray-600 text-base rst-description font-normal mb-4 rst_content">
@@ -291,7 +412,7 @@ if ($rst_testimonial_themes == '2') {
                         </div>
 
 
-                        <div class="rst-author-social-link rst_author_soc_link_2">
+                        <div class="rst-author-social-link rst_author_soc_link_2" style="display:flex; align-items:center; gap:6px; margin-top:20px; padding-top:18px; border-top:1px solid rgba(148, 163, 184, 0.18);">
                             <?php
 
 

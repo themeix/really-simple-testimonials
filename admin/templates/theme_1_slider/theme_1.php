@@ -4,6 +4,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+if (!isset($postid)) {
+    $postid = get_the_ID();
+}
+
 if ($rst_testimonial_themes == '1') {
 
     wp_enqueue_script('rst_theme_1_script_1', plugin_dir_url(__FILE__) . '../common/js/slick.min.js', array('jquery'), time(), true);
@@ -26,50 +30,147 @@ if ($rst_testimonial_themes == '1') {
             <script type="text/javascript">
                 (function ($) {
                     jQuery(document).ready(function () {
-                        $('.rst_thumb_<?php echo esc_attr($postid); ?>').slick({
-                            slidesToShow: 5,
-                            slidesToScroll: 1,
-                            asNavFor: '.rst_nav_box_<?php echo esc_attr($postid); ?>',
-                            dots: false,
-                            speed: <?php echo esc_attr($autoplay_speed);?>,
-                            arrows: true,
-                            prevArrow: $('.rst_prev_<?php echo esc_attr($postid); ?>'),
-                            nextArrow: $('.rst_next_<?php echo esc_attr($postid); ?>'),
-                            autoplay: <?php echo esc_attr($autoplay); ?>,
-                            centerMode: true,
-                            infinite: true,
-                            focusOnSelect: true,
-                            centerPadding: '0px',
-                        });
-
-                        $('.rst_nav_box_<?php echo esc_attr($postid); ?>').slick({
-                            slidesToShow: 1,
-                            arrows: false,
-                            dots: false,
-                            infinite: true,
-                            slidesToScroll: 1,
-                            /*fade: true,*/
-                            cssEase: 'linear',
-                            dots: false,
-                            asNavFor: '.rst_thumb_<?php echo esc_attr($postid); ?>'
-                        });
+                        var sliderElement = $('.rst_thumb_<?php echo esc_attr($postid); ?>');
+                        var navElement = $('.rst_nav_box_<?php echo esc_attr($postid); ?>');
+                        var prevButton = $('.rst_prev_<?php echo esc_attr($postid); ?>');
+                        var nextButton = $('.rst_next_<?php echo esc_attr($postid); ?>');
+                        
+                        console.log('Slider element found:', sliderElement.length > 0);
+                        console.log('Navigation element found:', navElement.length > 0);
+                        console.log('Previous button found:', prevButton.length > 0);
+                        console.log('Next button found:', nextButton.length > 0);
+                        console.log('Total slides:', sliderElement.find('.rst_thumb_item_thm_1').length);
+                        
+                        if (sliderElement.length > 0) {
+                            var sliderOptions = {
+                                slidesToShow: 5,
+                                slidesToScroll: 1,
+                                asNavFor: '.rst_nav_box_<?php echo esc_attr($postid); ?>',
+                                dots: false,
+                                speed: <?php echo esc_attr($autoplay_speed);?>,
+                                arrows: true,
+                                prevArrow: prevButton,
+                                nextArrow: nextButton,
+                                autoplay: <?php echo esc_attr($autoplay); ?>,
+                                centerMode: true,
+                                infinite: true,
+                                focusOnSelect: true,
+                                centerPadding: '0px',
+                                responsive: [
+                                    {
+                                        breakpoint: 1024,
+                                        settings: {
+                                            slidesToShow: 3
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 768,
+                                        settings: {
+                                            slidesToShow: 2
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 480,
+                                        settings: {
+                                            slidesToShow: 1
+                                        }
+                                    }
+                                ]
+                            };
+                            
+                            console.log('Initializing slider with options:', sliderOptions);
+                            
+                            sliderElement.on('init', function(event, slick) {
+                                console.log('Slider initialized successfully');
+                                // Remove slick-hidden class from custom arrows
+                                prevButton.removeClass('slick-hidden');
+                                nextButton.removeClass('slick-hidden');
+                                
+                                // Ensure custom arrows are visible
+                                prevButton.show();
+                                nextButton.show();
+                            });
+                            
+                            // Initialize the slider
+                            sliderElement.slick(sliderOptions);
+                            
+                            // Manually bind click events to custom arrows
+                            prevButton.on('click', function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('Previous button clicked');
+                                if (sliderElement.hasClass('slick-initialized')) {
+                                    sliderElement.slick('slickPrev');
+                                }
+                            });
+                            
+                            nextButton.on('click', function(e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('Next button clicked');
+                                if (sliderElement.hasClass('slick-initialized')) {
+                                    sliderElement.slick('slickNext');
+                                }
+                            });
+                            
+                            if (navElement.length > 0) {
+                                var navOptions = {
+                                    slidesToShow: 1,
+                                    arrows: false,
+                                    dots: false,
+                                    infinite: true,
+                                    slidesToScroll: 1,
+                                    cssEase: 'linear',
+                                    asNavFor: '.rst_thumb_<?php echo esc_attr($postid); ?>'
+                                };
+                                
+                                console.log('Initializing navigation with options:', navOptions);
+                                navElement.slick(navOptions);
+                            }
+                        } else {
+                            console.error('Slider element not found');
+                        }
+                        
+                        // Ensure navigation is visible based on setting
+                        <?php if($navigation == 'false' || $navigation === false || $navigation == ''): ?>
+                            $('.rst_<?php echo esc_attr( $postid );?> .rst-arrows').hide();
+                        <?php else: ?>
+                            $('.rst_<?php echo esc_attr( $postid );?> .rst-arrows').show();
+                        <?php endif; ?>
                     });
                 })(jQuery);
             </script>
 
         <style type="text/css">
 
-            <?php if($navigation == 'false'){?>
+            .rst_<?php echo esc_attr( $postid );?> .rst-arrows {
+                display: flex;
+                gap: 10px;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst-arrows .slick-arrow,
+            .rst_<?php echo esc_attr( $postid );?> .rst-arrows button {
+                display: flex !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+            }
+
+            .rst_<?php echo esc_attr( $postid );?> .rst-arrows .slick-hidden {
+                display: flex !important;
+                opacity: 0.5 !important;
+            }
+
+            <?php if($navigation == 'false' || $navigation === false || $navigation == ''){?>
             .rst_<?php echo esc_attr( $postid );?> .rst-arrows {
                 display: none !important;
             }
             <?php
-            }
+            } ?>
 
-            if ($navigation == 'true'){ ?>
             .rst_<?php echo esc_attr( $postid );?> .rst-prev {
                 background-color: <?php echo esc_attr($rst_nav_bg_color); ?> !important;
-
+                cursor: pointer;
+                pointer-events: auto !important;
             }
 
             .rst_<?php echo esc_attr( $postid );?> .rst-prev:hover {
@@ -78,22 +179,18 @@ if ($rst_testimonial_themes == '1') {
 
             .rst_<?php echo esc_attr( $postid );?> .rst-next {
                 background-color: <?php echo esc_attr($rst_nav_bg_color);?> !important;
-
+                cursor: pointer;
+                pointer-events: auto !important;
             }
 
             .rst_<?php echo esc_attr( $postid );?> .rst-next:hover {
                 background-color: <?php echo esc_attr($rst_nav_bg_color_hover);?> !important;
             }
 
-            <?php
-
-            }
-            ?>
-
 
             .rst_<?php echo esc_attr( $postid );?> .rst_slider_item_thm_1 {
-                border-width: 1px;
-                --tw-border-opacity: 1;
+              
+    
                 <?php if ($rst_show_item_bg_option == 1) { ?>
                     border-color: <?php echo esc_attr($rst_item_border_color); ?>!important;
                 <?php } else {?>
