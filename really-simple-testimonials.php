@@ -1,7 +1,7 @@
 <?php
 /**
 Plugin Name: Really Simple Testimonials
-Version: 1.1.0
+Version: 1.2.0
 Plugin URI: https://diviflow.com/
 Author: themeix
 Author URI: https://diviflow.com

@@ -4,7 +4,7 @@ Tags: testimonials, testimonial slider,  customer reviews, client feedback, test
 Requires at least: 6.0
 Requires PHP: 8.3
 Tested up to: 7.0
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -112,6 +112,10 @@ Yes, you can translate the plugin into any language using standard WordPress tra
 Yes, you can add social media links to testimonial profiles including Facebook, Twitter, LinkedIn, and Instagram.
 
 == Changelog ==
+
+= 1.2.0 =
+*   Fix PHP errors
+ 
 
 = 1.1.0 =
 *   Added frontend testimonial submission with AJAX form processing
